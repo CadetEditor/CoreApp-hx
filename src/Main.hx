@@ -27,6 +27,7 @@ class Main extends Sprite
 		inited = true;
 
 		// (your code here)
+		var node = new FileSystemNode();
 		
 		// Stage:
 		// stage.stageWidth x stage.stageHeight @ stage.dpiScale

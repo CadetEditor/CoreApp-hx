@@ -36,7 +36,6 @@
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
     <compile path="src\Main.hx" />
-    <compile path="src\core\app\controllers\DefaultExternalResourceParser.hx" />
     <compile path="src\core\app\controllers\ExternalResourceController.hx" />
     <compile path="src\core\app\controllers\IExternalResourceParser.hx" />
     <compile path="src\core\app\core\managers\fileSystemProviders\operations\ICreateDirectoryOperation.hx" />
@@ -137,6 +136,7 @@
     <compile path="src\core\events\ArrayCollectionChangeKind.hx" />
     <compile path="src\core\events\ArrayCollectionEvent.hx" />
     <compile path="src\core\events\PropertyChangeEvent.hx" />
+    <compile path="src\core\app\controllers\DefaultExternalResourceParser.hx" />
   </compileTargets>
   <!-- Assets to embed into the output SWF -->
   <library>
