@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project version="2">
+  <!-- Output SWF options -->
+  <output>
+    <movie outputType="Application" />
+    <movie input="" />
+    <movie path="application.xml" />
+    <movie fps="60" />
+    <movie width="800" />
+    <movie height="480" />
+    <movie version="3" />
+    <movie minorVersion="0" />
+    <movie platform="NME" />
+    <movie background="000000" />
+    <movie preferredSDK=";3;" />
+  </output>
+  <!-- Other classes to be compiled into your SWF -->
+  <classpaths>
+    <class path="src" />
+    <class path="bin\flash\haxe" />
+  </classpaths>
+  <!-- Build options -->
+  <build>
+    <option directives="tools=1.3.2&#xA;display&#xA;web" />
+    <option flashStrict="False" />
+    <option noInlineOnDebug="False" />
+    <option mainClass="ApplicationMain" />
+    <option enabledebug="True" />
+    <option additional="--no-output&#xA;-swf-version 11.2&#xA;#--remap nme:flash" />
+  </build>
+  <!-- haxelib libraries -->
+  <haxelib>
+    <library name="openfl" />
+    <library name="actuate" />
+  </haxelib>
+  <!-- Class files to compile (other referenced classes will automatically be included) -->
+  <compileTargets>
+    <compile path="src\Main.hx" />
+    <compile path="src\core\app\controllers\DefaultExternalResourceParser.hx" />
+    <compile path="src\core\app\controllers\ExternalResourceController.hx" />
+    <compile path="src\core\app\controllers\IExternalResourceParser.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\ICreateDirectoryOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\IDeleteFileOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\IDoesFileExistOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\IFileSystemProviderOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\IGetDirectoryContentsOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\IReadFileOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\ITraverseAllDirectoriesOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\ITraverseToDirectoryOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\operations\IWriteFileOperation.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\IFileSystemProvider.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\ILocalFileSystemProvider.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\IMemoryFileSystemProvider.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\IMultiFileSystemProvider.hx" />
+    <compile path="src\core\app\core\managers\fileSystemProviders\MultiFileSystemProvider.hx" />
+    <compile path="src\core\app\core\operations\IAsynchronousOperation.hx" />
+    <compile path="src\core\app\core\operations\IOperation.hx" />
+    <compile path="src\core\app\core\operations\IUndoableOperation.hx" />
+    <compile path="src\core\app\core\serialization\DeserializeTask.hx" />
+    <compile path="src\core\app\core\serialization\ISerializationPlugin.hx" />
+    <compile path="src\core\app\core\serialization\Manifest.hx" />
+    <compile path="src\core\app\core\serialization\SerializerTask.hx" />
+    <compile path="src\core\app\core\validators\IValidator.hx" />
+    <compile path="src\core\app\dataStructures\ObjectPool.hx" />
+    <compile path="src\core\app\entities\FileSystemNode.hx" />
+    <compile path="src\core\app\entities\IURIResolver.hx" />
+    <compile path="src\core\app\entities\TreeNode.hx" />
+    <compile path="src\core\app\entities\URI.hx" />
+    <compile path="src\core\app\entities\URIEncodingBitmap.hx" />
+    <compile path="src\core\app\events\CollectionValidatorEvent.hx" />
+    <compile path="src\core\app\events\FileSystemErrorCodes.hx" />
+    <compile path="src\core\app\events\FileSystemProviderEvent.hx" />
+    <compile path="src\core\app\events\OperationProgressEvent.hx" />
+    <compile path="src\core\app\events\ResourceManagerEvent.hx" />
+    <compile path="src\core\app\events\SerializeProgressEvent.hx" />
+    <compile path="src\core\app\events\ValidatorEvent.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\CreateDirectoryOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\DeleteFileOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\DoesFileExistOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\FileSystemUtil.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\GetDirectoryContentsOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\LocalFileSystemProvider.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\LocalFileSystemProviderOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\ReadFileOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\TraverseAllDirectoriesOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\TraverseToDirectoryOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\local\WriteFileOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\url\DoesFileExistOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\url\GetDirectoryContentsOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\url\ReadFileOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\url\TraverseAllDirectoriesOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\url\TraverseToDirectoryOperation.hx" />
+    <compile path="src\core\app\managers\fileSystemProviders\url\URLFileSystemProvider.hx" />
+    <compile path="src\core\app\managers\DependencyManager.hx" />
+    <compile path="src\core\app\managers\DependencyNode.hx" />
+    <compile path="src\core\app\managers\ResourceManager.hx" />
+    <compile path="src\core\app\operations\AddItemOperation.hx" />
+    <compile path="src\core\app\operations\AddToVectorOperation.hx" />
+    <compile path="src\core\app\operations\ChangePropertyOperation.hx" />
+    <compile path="src\core\app\operations\CloneOperation.hx" />
+    <compile path="src\core\app\operations\CompoundOperation.hx" />
+    <compile path="src\core\app\operations\DeserializeOperation.hx" />
+    <compile path="src\core\app\operations\LoadManifestOperation.hx" />
+    <compile path="src\core\app\operations\LoadManifestsOperation.hx" />
+    <compile path="src\core\app\operations\ReadFileAndDeserializeOperation.hx" />
+    <compile path="src\core\app\operations\RemoveItemOperation.hx" />
+    <compile path="src\core\app\operations\SerializeOperation.hx" />
+    <compile path="src\core\app\operations\UndoableCompoundOperation.hx" />
+    <compile path="src\core\app\resources\AbstractExternalResource.hx" />
+    <compile path="src\core\app\resources\ExternalBitmapDataResource.hx" />
+    <compile path="src\core\app\resources\ExternalMP3Resource.hx" />
+    <compile path="src\core\app\resources\ExternalResourceParserFactory.hx" />
+    <compile path="src\core\app\resources\ExternalXMLResource.hx" />
+    <compile path="src\core\app\resources\FactoryResource.hx" />
+    <compile path="src\core\app\resources\IExternalResource.hx" />
+    <compile path="src\core\app\resources\IFactoryResource.hx" />
+    <compile path="src\core\app\resources\IResource.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\data\AbcNamespace.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\data\AbcQName.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\data\MultiName.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\data\ParameterizedQName.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\data\RecordHeader.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\data\Traits.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\Abc.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\AbcExtractor.hx" />
+    <compile path="src\core\app\util\swfClassExplorer\SwfClassExplorer.hx" />
+    <compile path="src\core\app\util\ArrayUtil.hx" />
+    <compile path="src\core\app\util\AsynchronousUtil.hx" />
+    <compile path="src\core\app\util\Easing.hx" />
+    <compile path="src\core\app\util\FileSystemTypes.hx" />
+    <compile path="src\core\app\util\SerializationUtil.hx" />
+    <compile path="src\core\app\util\StringUtil.hx" />
+    <compile path="src\core\app\validators\AbstractValidator.hx" />
+    <compile path="src\core\app\validators\CollectionValidator.hx" />
+    <compile path="src\core\app\CoreApp.hx" />
+    <compile path="src\core\data\ArrayCollection.hx" />
+    <compile path="src\core\events\ArrayCollectionChangeKind.hx" />
+    <compile path="src\core\events\ArrayCollectionEvent.hx" />
+    <compile path="src\core\events\PropertyChangeEvent.hx" />
+  </compileTargets>
+  <!-- Assets to embed into the output SWF -->
+  <library>
+    <!-- example: <asset path="..." id="..." update="..." glyphs="..." mode="..." place="..." sharepoint="..." /> -->
+  </library>
+  <!-- Paths to exclude from the Project Explorer tree -->
+  <hiddenPaths>
+    <hidden path="obj" />
+  </hiddenPaths>
+  <!-- Executed before build -->
+  <preBuildCommand />
+  <!-- Executed after build -->
+  <postBuildCommand alwaysRun="False" />
+  <!-- Other project options -->
+  <options>
+    <option showHiddenPaths="False" />
+    <option testMovie="Custom" />
+    <option testMovieCommand="" />
+  </options>
+  <!-- Plugin storage -->
+  <storage />
+</project>
