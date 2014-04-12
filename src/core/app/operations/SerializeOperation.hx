@@ -1,4 +1,5 @@
-  // Copyright (c) 2012, Unwrong Ltd. http://www.unwrong.com    // All rights reserved.  package core.app.operations;
+// Copyright (c) 2012, Unwrong Ltd. http://www.unwrong.com    
+// All rights reserved.  package core.app.operations;
 
 import nme.events.Event;import nme.events.EventDispatcher;import core.app.core.operations.IAsynchronousOperation;import core.app.core.serialization.ISerializationPlugin;import core.app.core.serialization.Serializer;import core.app.events.OperationProgressEvent;import core.app.events.SerializeProgressEvent;@:meta(Event(type="core.app.events.OperationProgressEvent",name="progress"))
 @:meta(Event(type="flash.events.Event",name="complete"))

@@ -1,4 +1,13 @@
-  // =================================================================================================    //    //	CoreApp Framework    //	Copyright 2012 Unwrong Ltd. All Rights Reserved.    //    //	This program is free software. You can redistribute and/or modify it    //	in accordance with the terms of the accompanying license agreement.    //    // =================================================================================================  package core.events;
+// =================================================================================================    
+//    
+//	CoreApp Framework    
+//	Copyright 2012 Unwrong Ltd. All Rights Reserved.    
+//    
+//	This program is free software. You can redistribute and/or modify it    
+//	in accordance with the terms of the accompanying license agreement.    
+//    
+// =================================================================================================  
+package core.events;
 
 import nme.errors.Error;
 import nme.events.Event;class PropertyChangeEvent extends Event

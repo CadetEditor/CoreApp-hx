@@ -1,4 +1,5 @@
-  // Copyright (c) 2012, Unwrong Ltd. http://www.unwrong.com    // All rights reserved.  package core.app.operations;
+// Copyright (c) 2012, Unwrong Ltd. http://www.unwrong.com    
+// All rights reserved.  package core.app.operations;
 
 import core.app.core.operations.IUndoableOperation;class AddToVectorOperation implements IUndoableOperation
 {

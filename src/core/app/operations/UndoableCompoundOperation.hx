@@ -1,15 +1,34 @@
-  // =================================================================================================    //    //	CoreApp Framework    //	Copyright 2012 Unwrong Ltd. All Rights Reserved.    //    //	This program is free software. You can redistribute and/or modify it    //	in accordance with the terms of the accompanying license agreement.    //    // =================================================================================================  package core.app.operations;
+// =================================================================================================    
+//    
+//	CoreApp Framework    
+//	Copyright 2012 Unwrong Ltd. All Rights Reserved.    
+//    
+//	This program is free software. You can redistribute and/or modify it    
+//	in accordance with the terms of the accompanying license agreement.    
+//    
+// =================================================================================================  
+package core.app.operations;
 
-import nme.events.ErrorEvent;import nme.events.Event;import nme.events.EventDispatcher;import core.app.core.operations.IAsynchronousOperation;import core.app.core.operations.IUndoableOperation;import core.app.events.OperationProgressEvent;  /**
-	 * This Operation allows multiple IUndoableOperations to be treated as one. This operation will 'execute()' its
-	 * children Operations in order - and calculates the overall progress based upon how many operations
-	 * have completed.
-	 * 
-	 * It is also capable of providing the same behaviour in reverse, when undo() is called.
-	 * 
-	 * As a UndoableCompoundOperation is itself an Operation, you could have UndoableCompoundOperation within UndoableCompoundOperation.
-	 * @author Jonathan
-	 * 
+import nme.events.ErrorEvent;import nme.events.Event;import nme.events.EventDispatcher;import core.app.core.operations.IAsynchronousOperation;import core.app.core.operations.IUndoableOperation;import core.app.events.OperationProgressEvent;  /**
+
+	 * This Operation allows multiple IUndoableOperations to be treated as one. This operation will 'execute()' its
+
+	 * children Operations in order - and calculates the overall progress based upon how many operations
+
+	 * have completed.
+
+	 * 
+
+	 * It is also capable of providing the same behaviour in reverse, when undo() is called.
+
+	 * 
+
+	 * As a UndoableCompoundOperation is itself an Operation, you could have UndoableCompoundOperation within UndoableCompoundOperation.
+
+	 * @author Jonathan
+
+	 * 
+
 	 */  class UndoableCompoundOperation extends EventDispatcher implements IAsynchronousOperation implements IUndoableOperation
 {
     private var currentIndex(get, never) : Int;

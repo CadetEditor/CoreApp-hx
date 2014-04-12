@@ -1,4 +1,13 @@
-  // =================================================================================================    //    //	CoreApp Framework    //	Copyright 2012 Unwrong Ltd. All Rights Reserved.    //    //	This program is free software. You can redistribute and/or modify it    //	in accordance with the terms of the accompanying license agreement.    //    // =================================================================================================  package core.app.operations;
+// =================================================================================================    
+//    
+//	CoreApp Framework    
+//	Copyright 2012 Unwrong Ltd. All Rights Reserved.    
+//    
+//	This program is free software. You can redistribute and/or modify it    
+//	in accordance with the terms of the accompanying license agreement.    
+//    
+// =================================================================================================  
+package core.app.operations;
 
 import nme.events.ErrorEvent;import nme.events.Event;import nme.events.EventDispatcher;import core.app.core.operations.IAsynchronousOperation;import core.app.core.serialization.Deserializer;import core.app.core.serialization.ISerializationPlugin;import core.app.events.OperationProgressEvent;import core.app.events.SerializeProgressEvent;@:meta(Event(type="core.app.events.OperationProgressEvent",name="progress"))
 @:meta(Event(type="flash.events.Event",name="complete"))

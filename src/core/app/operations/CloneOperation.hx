@@ -1,4 +1,13 @@
-  // =================================================================================================    //    //	CoreApp Framework    //	Copyright 2012 Unwrong Ltd. All Rights Reserved.    //    //	This program is free software. You can redistribute and/or modify it    //	in accordance with the terms of the accompanying license agreement.    //    // =================================================================================================  package core.app.operations;
+// =================================================================================================    
+//    
+//	CoreApp Framework    
+//	Copyright 2012 Unwrong Ltd. All Rights Reserved.    
+//    
+//	This program is free software. You can redistribute and/or modify it    
+//	in accordance with the terms of the accompanying license agreement.    
+//    
+// =================================================================================================  
+package core.app.operations;
 
 import core.app.operations.Deserializer;
 import core.app.operations.Event;
@@ -11,12 +20,18 @@ import core.app.operations.Serializer;
 import nme.events.Event;import nme.events.EventDispatcher;import core.app.core.operations.IAsynchronousOperation;import core.app.core.serialization.Deserializer;import core.app.core.serialization.ISerializationPlugin;import core.app.core.serialization.Serializer;import core.app.events.OperationProgressEvent;import core.app.events.SerializeProgressEvent;@:meta(Event(type="core.app.events.OperationProgressEvent",name="progress"))
 @:meta(Event(type="flash.events.Event",name="complete"))
 @:meta(Event(type="flash.events.ErrorEvent",name="error"))
-  /**
-	 * This Operation wraps up a call to the bones.core.serialization.Serializer.cloneAsync() method.
-	 * The Serializer dispatches its own progress and complete events, which this Operation re-dispatches
-	 * as OperationEvent's. 
-	 * @author Jonathan
-	 * 
+  /**
+
+	 * This Operation wraps up a call to the bones.core.serialization.Serializer.cloneAsync() method.
+
+	 * The Serializer dispatches its own progress and complete events, which this Operation re-dispatches
+
+	 * as OperationEvent's. 
+
+	 * @author Jonathan
+
+	 * 
+
 	 */  class CloneOperation extends EventDispatcher implements IAsynchronousOperation
 {
     public var label(get, never) : String;

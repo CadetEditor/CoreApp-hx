@@ -1,8 +1,20 @@
-  // =================================================================================================    //    //	CoreApp Framework    //	Copyright 2012 Unwrong Ltd. All Rights Reserved.    //    //	This program is free software. You can redistribute and/or modify it    //	in accordance with the terms of the accompanying license agreement.    //    // =================================================================================================  package core.app.events;
+// =================================================================================================    
+//    
+//	CoreApp Framework    
+//	Copyright 2012 Unwrong Ltd. All Rights Reserved.    
+//    
+//	This program is free software. You can redistribute and/or modify it    
+//	in accordance with the terms of the accompanying license agreement.    
+//    
+// =================================================================================================  
+package core.app.events;
 
-import nme.events.Event;  /**
-	 * ...
-	 * @author Jon
+import nme.events.Event;  /**
+
+	 * ...
+
+	 * @author Jon
+
 	 */  class SerializeProgressEvent extends Event
 {public static inline var PROGRESS : String = "progress";public var numItems : Int;public var totalItems : Int;public function new(type : String)
     {super(type, false, false);

@@ -1,13 +1,10 @@
 package ;
 
+//import core.app.entities;
+import core.app.entities.FileSystemNode;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
-
-/**
- * ...
- * @author @edsilv
- */
 
 class Main extends Sprite 
 {
@@ -27,7 +24,6 @@ class Main extends Sprite
 		inited = true;
 
 		// (your code here)
-		var node = new FileSystemNode();
 		
 		// Stage:
 		// stage.stageWidth x stage.stageHeight @ stage.dpiScale

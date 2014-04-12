@@ -1,10 +1,24 @@
-  // =================================================================================================    //    //	CoreApp Framework    //	Copyright 2012 Unwrong Ltd. All Rights Reserved.    //    //	This program is free software. You can redistribute and/or modify it    //	in accordance with the terms of the accompanying license agreement.    //    // =================================================================================================  package core.app.operations;
+// =================================================================================================    
+//    
+//	CoreApp Framework    
+//	Copyright 2012 Unwrong Ltd. All Rights Reserved.    
+//    
+//	This program is free software. You can redistribute and/or modify it    
+//	in accordance with the terms of the accompanying license agreement.    
+//    
+// =================================================================================================  
+package core.app.operations;
 
-import core.app.core.operations.IUndoableOperation;  /**
-	 * This Operation sets the value of a single property on a single object. It remembers the value
-	 * it is replacing, allowing the operation to be undone.
-	 * @author Jonathan
-	 * 
+import core.app.core.operations.IUndoableOperation;  /**
+
+	 * This Operation sets the value of a single property on a single object. It remembers the value
+
+	 * it is replacing, allowing the operation to be undone.
+
+	 * @author Jonathan
+
+	 * 
+
 	 */  class ChangePropertyOperation implements IUndoableOperation
 {
     public var label(get, set) : String;

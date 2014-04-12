@@ -1,4 +1,14 @@
-  // =================================================================================================    //    //	CoreApp Framework    //	Copyright 2012 Unwrong Ltd. All Rights Reserved.    //    //	This program is free software. You can redistribute and/or modify it    //	in accordance with the terms of the accompanying license agreement.    //    // =================================================================================================  package core.app.controllers;
+// =================================================================================================    
+//    
+//	CoreApp Framework    
+//	Copyright 2012 Unwrong Ltd. All Rights Reserved.    
+//    
+//	This program is free software. You can redistribute and/or modify it    
+//	in accordance with the terms of the accompanying license agreement.    
+//    
+// =================================================================================================  
+
+package core.app.controllers;
 
 import core.app.controllers.Dictionary;
 import core.app.controllers.EventDispatcher;
@@ -15,11 +25,16 @@ import core.app.controllers.ResourceManagerEvent;
 import core.app.controllers.Timer;
 import core.app.controllers.TimerEvent;
 import nme.errors.Error;
-  /**
-	 * Monitors a folder in a filesystem via polling, creates an IExternalResource for each compatible
-	 * file it finds and adds it to a ResourceManager.
-	 * Files being deleted from this folder will have their corresponding IExternalResource removed.
-	 * If the given directory does not exist, the controller will automatically create it.
+  /**
+
+	 * Monitors a folder in a filesystem via polling, creates an IExternalResource for each compatible
+
+	 * file it finds and adds it to a ResourceManager.
+
+	 * Files being deleted from this folder will have their corresponding IExternalResource removed.
+
+	 * If the given directory does not exist, the controller will automatically create it.
+
 	 */  import nme.events.ErrorEvent;import nme.events.Event;import nme.events.EventDispatcher;import nme.events.TimerEvent;import nme.utils.Dictionary;import nme.utils.Timer;import core.app.CoreApp;import core.app.core.managers.filesystemproviders.IMultiFileSystemProvider;import core.app.core.managers.filesystemproviders.operations.ICreateDirectoryOperation;import core.app.core.managers.filesystemproviders.operations.IDoesFileExistOperation;import core.app.core.managers.filesystemproviders.operations.ITraverseAllDirectoriesOperation;import core.app.core.managers.filesystemproviders.operations.ITraverseToDirectoryOperation;import core.app.entities.FileSystemNode;import core.app.entities.URI;import core.app.events.ResourceManagerEvent;import core.app.managers.ResourceManager;import core.app.resources.ExternalResourceParserFactory;import core.app.resources.IExternalResource;import core.app.resources.IFactoryResource;import core.app.resources.IResource;class ExternalResourceController extends EventDispatcher
 {private var _resourceManager : ResourceManager;private var _assetsURI : URI;private var _fileSystemProvider : IMultiFileSystemProvider;private var parserFactories : Array<IResource>;private var timer : Timer;private var operationExecuting : Bool = false;private var resourcesByPath : Dynamic;private var uriByLoaderTable : Dictionary;private var bytesByLoaderTable : Dictionary;public function new(resourceManager : ResourceManager, assetsURI : URI, fileSystemProvider : IMultiFileSystemProvider)
     {

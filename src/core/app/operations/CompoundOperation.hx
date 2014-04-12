@@ -1,4 +1,13 @@
-  // =================================================================================================    //    //	CoreApp Framework    //	Copyright 2012 Unwrong Ltd. All Rights Reserved.    //    //	This program is free software. You can redistribute and/or modify it    //	in accordance with the terms of the accompanying license agreement.    //    // =================================================================================================  package core.app.operations;
+// =================================================================================================    
+//    
+//	CoreApp Framework    
+//	Copyright 2012 Unwrong Ltd. All Rights Reserved.    
+//    
+//	This program is free software. You can redistribute and/or modify it    
+//	in accordance with the terms of the accompanying license agreement.    
+//    
+// =================================================================================================  
+package core.app.operations;
 
 import core.app.operations.ErrorEvent;
 import core.app.operations.IOperation;
@@ -6,14 +15,22 @@ import core.app.operations.PropertyChangeEvent;
 import nme.events.ErrorEvent;import nme.events.Event;import nme.events.EventDispatcher;import core.events.PropertyChangeEvent;import core.app.core.operations.IAsynchronousOperation;import core.app.core.operations.IOperation;import core.app.events.OperationProgressEvent;import core.app.util.AsynchronousUtil;@:meta(Event(type="core.app.events.OperationProgressEvent",name="progress"))
 @:meta(Event(type="flash.events.Event",name="complete"))
 @:meta(Event(type="flash.events.ErrorEvent",name="error"))
-  /**
-	 * This Operation allows multiple Operations to be treated as one. This operation will 'execute()' its
-	 * children Operations in order - and calculates the overall progress based upon how many operations
-	 * have completed.
-	 * 
-	 * As a CompoundOperation is itself an Operation, you could have CompoundOperations within CompoundOperations.
-	 * @author Jonathan
-	 * 
+  /**
+
+	 * This Operation allows multiple Operations to be treated as one. This operation will 'execute()' its
+
+	 * children Operations in order - and calculates the overall progress based upon how many operations
+
+	 * have completed.
+
+	 * 
+
+	 * As a CompoundOperation is itself an Operation, you could have CompoundOperations within CompoundOperations.
+
+	 * @author Jonathan
+
+	 * 
+
 	 */  class CompoundOperation extends EventDispatcher implements IAsynchronousOperation
 {
     private var currentIndex(get, never) : Int;
