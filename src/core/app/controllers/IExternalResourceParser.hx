@@ -10,9 +10,12 @@
 
 package core.app.controllers;
 
-import core.app.core.managers.filesystemproviders.IFileSystemProvider;import core.app.entities.URI;import core.app.managers.ResourceManager;interface IExternalResourceParser
+import core.app.core.managers.filesystemproviders.IFileSystemProvider;
+import core.app.entities.URI;
+import core.app.managers.ResourceManager;
+interface IExternalResourceParser
 {
-// Should create a resource for the input uri, and take care of adding it to the resource manager.  
-// It should return an array that contains (or will contain) all resources assocaited with this uri.  
-function parse(uri : URI, assetsURI : URI, resourceManager : ResourceManager, fileSystemProvider : IFileSystemProvider) : Array<Dynamic>;
+	// Should create a resource for the input uri, and take care of adding it to the resource manager.  
+	// It should return an array that contains (or will contain) all resources assocaited with this uri.  
+	function parse(uri : URI, assetsURI : URI, resourceManager : ResourceManager, fileSystemProvider : IFileSystemProvider) : Array<Dynamic>;
 }

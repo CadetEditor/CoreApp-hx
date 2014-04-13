@@ -10,11 +10,12 @@
 
 package core.app.core.managers.filesystemproviders.operations;
 
-import core.app.entities.URI;@:meta(Event(type="coreApp.apps.events.FileSystemErrorEvent",name="error"))
+import core.app.entities.URI;
+
+@:meta(Event(type="coreApp.apps.events.FileSystemErrorEvent",name="error"))
 @:meta(Event(type="flash.events.Event",name="complete"))
 @:meta(Event(type="core.app.events.OperationProgressEvent",name="progress"))
 interface IGetDirectoryContentsOperation extends IFileSystemProviderOperation
 {
     var contents(get, never) : Array<URI>;
-
 }

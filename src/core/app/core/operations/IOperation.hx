@@ -12,5 +12,5 @@ package core.app.core.operations;
 interface IOperation
 {
     var label(get, never) : String;
-function execute() : Void;
+	function execute() : Void;
 }

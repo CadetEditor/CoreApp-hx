@@ -10,7 +10,16 @@
 package core.app.core.serialization;
 
 class DeserializeTask
-{public var xml : FastXML;public var type : Class<Dynamic>;public var parentTask : DeserializeTask;public var instance : Dynamic;public var name : String;public var id : String;public var next : DeserializeTask;public var deserializeFunc : Function;public function new()
+{
+	public var xml : FastXML;
+	public var type : Class<Dynamic>;
+	public var parentTask : DeserializeTask;
+	public var instance : Dynamic;
+	public var name : String;
+	public var id : String;
+	public var next : DeserializeTask;
+	public var deserializeFunc : Function;
+	public function new()
     {
     }
 }

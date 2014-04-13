@@ -10,7 +10,16 @@
 package core.app.core.serialization;
 
 class SerializerTask
-{public var obj : Dynamic;public var propertyName : String;public var propertyAlias : String;public var value : Dynamic;public var id : Int;public var parentXML : FastXML;public var manifest : Manifest;public var serializeFunc : Function;public function new()
+{
+	public var obj : Dynamic;
+	public var propertyName : String;
+	public var propertyAlias : String;
+	public var value : Dynamic;
+	public var id : Int;
+	public var parentXML : FastXML;
+	public var manifest : Manifest;
+	public var serializeFunc : Function;
+	public function new()
     {
     }
 }

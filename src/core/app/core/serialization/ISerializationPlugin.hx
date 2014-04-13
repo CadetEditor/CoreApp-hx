@@ -12,5 +12,4 @@ package core.app.core.serialization;
 interface ISerializationPlugin
 {
     var id(get, never) : String;
-
 }

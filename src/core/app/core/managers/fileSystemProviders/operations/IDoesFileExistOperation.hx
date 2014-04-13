@@ -14,5 +14,4 @@ import core.app.core.managers.filesystemproviders.operations.IFileSystemProvider
 interface IDoesFileExistOperation extends IFileSystemProviderOperation
 {
     var fileExists(get, never) : Bool;
-
 }

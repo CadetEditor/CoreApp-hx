@@ -10,8 +10,8 @@
 
 package core.app.core.managers.filesystemproviders.operations;
 
-import nme.utils.ByteArray;interface IWriteFileOperation extends IFileSystemProviderOperation
+import nme.utils.ByteArray;
+interface IWriteFileOperation extends IFileSystemProviderOperation
 {
     var bytes(get, never) : ByteArray;
-
 }

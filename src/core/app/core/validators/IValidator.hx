@@ -10,9 +10,11 @@
 package core.app.core.validators;
 
 import core.app.core.validators.IEventDispatcher;
-import nme.events.IEventDispatcher;@:meta(Event(type="core.app.events.ValidatorEvent",name="stateChanged"))
+import nme.events.IEventDispatcher;
+
+@:meta(Event(type="core.app.events.ValidatorEvent",name="stateChanged"))
 interface IValidator extends IEventDispatcher
 {
     var state(get, never) : Bool;
-function dispose() : Void;
+	function dispose() : Void;
 }

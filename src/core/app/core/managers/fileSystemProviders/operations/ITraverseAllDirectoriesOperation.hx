@@ -13,5 +13,4 @@ package core.app.core.managers.filesystemproviders.operations;
 interface ITraverseAllDirectoriesOperation extends IFileSystemProviderOperation
 {
     var contents(get, never) : Array<Dynamic>;
-
 }

@@ -9,7 +9,9 @@
 // =================================================================================================  
 package core.app.core.operations;
 
-import core.app.core.operations.IOperation;interface IUndoableOperation extends IOperation
+import core.app.core.operations.IOperation;
+
+interface IUndoableOperation extends IOperation
 {
-function undo() : Void;
+	function undo() : Void;
 }

@@ -10,8 +10,11 @@
 package core.app.core.managers.filesystemproviders;
 
 import core.app.core.managers.filesystemproviders.FileSystemNode;
-import core.app.entities.FileSystemNode;import core.app.entities.URI;interface IMultiFileSystemProvider extends IFileSystemProvider
+import core.app.entities.FileSystemNode;
+import core.app.entities.URI;
+interface IMultiFileSystemProvider extends IFileSystemProvider
 {
     var fileSystem(get, never) : FileSystemNode;
-function registerFileSystemProvider(provider : IFileSystemProvider, visible : Bool = true) : Void;function getFileSystemProviderForURI(uri : URI) : IFileSystemProvider;
+	function registerFileSystemProvider(provider : IFileSystemProvider, visible : Bool = true) : Void;
+	function getFileSystemProviderForURI(uri : URI) : IFileSystemProvider;
 }

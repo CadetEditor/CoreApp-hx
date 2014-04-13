@@ -10,8 +10,9 @@
 
 package core.app.core.managers.filesystemproviders.operations;
 
-import core.app.entities.URI;interface ITraverseToDirectoryOperation extends IFileSystemProviderOperation
+import core.app.entities.URI;
+interface ITraverseToDirectoryOperation extends IFileSystemProviderOperation
 {
-    var contents(get, never) : Array<Dynamic>;    var finalURI(get, never) : URI;
-
+    var contents(get, never) : Array<Dynamic>;    
+	var finalURI(get, never) : URI;
 }
