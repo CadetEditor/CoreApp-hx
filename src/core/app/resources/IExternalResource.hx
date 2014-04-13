@@ -10,7 +10,16 @@
 package core.app.resources;
 
 import core.app.resources.IEventDispatcher;
-import nme.events.IEventDispatcher;import core.app.core.managers.filesystemproviders.IFileSystemProvider;import core.app.entities.URI;interface IExternalResource extends IFactoryResource extends IEventDispatcher
+import nme.events.IEventDispatcher;
+import core.app.core.managers.filesystemproviders.IFileSystemProvider;
+import core.app.entities.URI;
+
+interface IExternalResource extends IFactoryResource extends IEventDispatcher
 {
-function getIsLoaded() : Bool;function getIsLoading() : Bool;function setFileSystemProvider(value : IFileSystemProvider) : Void;function getUri() : URI;function load() : Void;function unload() : Void;
+	function getIsLoaded() : Bool;
+	function getIsLoading() : Bool;
+	function setFileSystemProvider(value : IFileSystemProvider) : Void;
+	function getUri() : URI;
+	function load() : Void;
+	function unload() : Void;
 }

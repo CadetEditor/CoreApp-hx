@@ -10,7 +10,9 @@
 package core.app.resources;
 
 import core.app.resources.IResource;
+
 interface IFactoryResource extends IResource
 {
-function getInstance() : Dynamic;function getInstanceType() : Class<Dynamic>;
+	function getInstance() : Dynamic;
+	function getInstanceType() : Class<Dynamic>;
 }

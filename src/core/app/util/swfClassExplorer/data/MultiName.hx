@@ -10,7 +10,11 @@
 package core.app.util.swfclassexplorer.data;
 
 class MultiName extends AbcQName
-{public var nsset : Array<Dynamic>;public function new(nsset : Array<Dynamic>, localName : String)
-    {super(localName);this.nsset = nsset;
+{
+	public var nsset : Array<Dynamic>;
+	public function new(nsset : Array<Dynamic>, localName : String)
+    {
+		super(localName);
+		this.nsset = nsset;
     }
 }

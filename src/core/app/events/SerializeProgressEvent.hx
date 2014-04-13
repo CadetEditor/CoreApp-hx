@@ -9,15 +9,28 @@
 // =================================================================================================  
 package core.app.events;
 
-import nme.events.Event;  /**
+import nme.events.Event;  
 
-	 * ...
+/**
+ * ...
+ * @author Jon
+ */  
 
-	 * @author Jon
-
-	 */  class SerializeProgressEvent extends Event
-{public static inline var PROGRESS : String = "progress";public var numItems : Int;public var totalItems : Int;public function new(type : String)
-    {super(type, false, false);
-    }override public function clone() : Event{var event : SerializeProgressEvent = new SerializeProgressEvent(SerializeProgressEvent.PROGRESS);event.numItems = numItems;event.totalItems = totalItems;return event;
+class SerializeProgressEvent extends Event
+{
+	public static inline var PROGRESS : String = "progress";
+	public var numItems : Int;
+	public var totalItems : Int;
+	
+	public function new(type : String)
+    {
+		super(type, false, false);
+    }
+	
+	override public function clone() : Event {
+		var event : SerializeProgressEvent = new SerializeProgressEvent(SerializeProgressEvent.PROGRESS);
+		event.numItems = numItems; 
+		event.totalItems = totalItems;
+		return event;
     }
 }

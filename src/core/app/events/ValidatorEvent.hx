@@ -12,9 +12,19 @@ package core.app.events;
 import nme.events.Event;class ValidatorEvent extends Event
 {
     public var state(get, never) : Bool;
-public static inline var STATE_CHANGED : String = "stateChanged";private var _state : Bool;public function new(type : String, state : Bool)
-    {super(type);_state = state;
-    }override public function clone() : Event{return new ValidatorEvent(type, _state);
-    }private function get_State() : Bool{return _state;
+	public static inline var STATE_CHANGED : String = "stateChanged";
+	private var _state : Bool;
+	
+	public function new(type : String, state : Bool)
+    {
+		super(type);_state = state;
+    }
+	
+	override public function clone() : Event {
+		return new ValidatorEvent(type, _state);
+    }
+	
+	private function get_State() : Bool {
+		return _state;
     }
 }

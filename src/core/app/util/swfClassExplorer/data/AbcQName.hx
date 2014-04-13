@@ -10,8 +10,17 @@
 package core.app.util.swfclassexplorer.data;
 
 class AbcQName
-{public var localName : String;public var uri : String = "";public function new(localName : String, uri : AbcNamespace = null)
-    {this.localName = localName;if (uri != null)             this.uri = uri.uri;
-    }public function toString() : String{return ((uri != null && uri.length > 0)) ? uri + ":" + localName : localName;
+{
+	public var localName : String;
+	public var uri : String = "";
+	public function new(localName : String, uri : AbcNamespace = null)
+    {
+		this.localName = localName;
+		if (uri != null) this.uri = uri.uri;
+    }
+	
+	public function toString() : String
+	{
+		return ((uri != null && uri.length > 0)) ? uri + ":" + localName : localName;
     }
 }

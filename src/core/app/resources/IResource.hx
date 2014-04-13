@@ -11,5 +11,6 @@ package core.app.resources;
 
 interface IResource
 {
-function getLabel() : String;function getID() : String;
+	function getLabel() : String;
+	function getID() : String;
 }

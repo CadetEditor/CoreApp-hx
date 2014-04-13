@@ -10,7 +10,13 @@
 package core.app.util.swfclassexplorer.data;
 
 class RecordHeader
-{public var tagCode : Int;public var tagLength : Int;public function new(tag : Int, length : Int)
-    {tagCode = tag;tagLength = length;
+{
+	public var tagCode : Int;
+	public var tagLength : Int;
+	
+	public function new(tag : Int, length : Int)
+    {
+		tagCode = tag;
+		tagLength = length;
     }
 }

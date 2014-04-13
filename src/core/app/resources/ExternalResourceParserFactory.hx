@@ -10,12 +10,23 @@
 package core.app.resources;
 
 import core.app.resources.FactoryResource;
+
 class ExternalResourceParserFactory extends FactoryResource
 {
     public var supportedExtensions(get, never) : Array<Dynamic>;
-private var _supportedExtensions : Array<Dynamic>;public function new(type : Class<Dynamic>, label : String, supportedExtensions : Array<Dynamic>)
-    {super(type, label);_supportedExtensions = supportedExtensions;for (i in 0..._supportedExtensions.length){_supportedExtensions[i] = _supportedExtensions[i].toLowerCase();
+	private var _supportedExtensions : Array<Dynamic>;
+	
+	public function new(type : Class<Dynamic>, label : String, supportedExtensions : Array<Dynamic>)
+    {
+		super(type, label);
+		_supportedExtensions = supportedExtensions;
+		
+		for (i in 0..._supportedExtensions.length) {
+			_supportedExtensions[i] = _supportedExtensions[i].toLowerCase();
         }
-    }private function get_SupportedExtensions() : Array<Dynamic>{return _supportedExtensions.substring();
+    }
+	
+	private function get_SupportedExtensions() : Array<Dynamic> {
+		return _supportedExtensions.substring();
     }
 }

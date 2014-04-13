@@ -12,6 +12,10 @@ class Main extends Sprite
 
 	/* ENTRY POINT */
 	
+	/*
+	 * Look for all AS3HX WARNING and TODOs
+	 */
+	
 	function resize(e) 
 	{
 		if (!inited) init();

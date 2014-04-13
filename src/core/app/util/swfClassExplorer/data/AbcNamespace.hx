@@ -10,7 +10,12 @@
 package core.app.util.swfclassexplorer.data;
 
 class AbcNamespace
-{public var prefix : String;public var uri : String;public function new(uri : String, prefix : String = "")
-    {this.uri = uri;this.prefix = prefix;
+{
+	public var prefix : String;
+	public var uri : String;
+	public function new(uri : String, prefix : String = "")
+    {
+		this.uri = uri;
+		this.prefix = prefix;
     }
 }

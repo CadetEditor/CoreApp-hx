@@ -10,7 +10,14 @@
 package core.app.util.swfclassexplorer.data;
 
 class Traits
-{public var name : AbcQName;public var baseName : AbcQName;public var flags : Int;public var interfaces : Array<Dynamic>;public function toString() : String{return Std.string(name);
+{
+	public var name : AbcQName;
+	public var baseName : AbcQName;
+	public var flags : Int;
+	public var interfaces : Array<Dynamic>;
+	
+	public function toString() : String {
+		return Std.string(name);
     }
 
     public function new()
