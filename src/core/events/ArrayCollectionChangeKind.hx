@@ -10,7 +10,11 @@
 package core.events;
 
 class ArrayCollectionChangeKind
-{public static inline var ADD : Int = 0;public static inline var REMOVE : Int = 1;public static inline var REPLACE : Int = 2;public static inline var RESET : Int = 3;
+{
+	public static inline var ADD : Int = 0;
+	public static inline var REMOVE : Int = 1;
+	public static inline var REPLACE : Int = 2;
+	public static inline var RESET : Int = 3;
 
     public function new()
     {

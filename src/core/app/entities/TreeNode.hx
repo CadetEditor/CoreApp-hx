@@ -11,9 +11,9 @@ package core.app.entities;
 
 import core.data.ArrayCollection;
 import core.events.ArrayCollectionEvent;
-import core.app.entities.EventDispatcher;
-import nme.errors.Error;
-import nme.events.EventDispatcher;
+//import core.app.entities.EventDispatcher;
+//import nme.errors.Error;
+//import nme.events.EventDispatcher;
 import core.data.ArrayCollection;
 import core.events.ArrayCollectionChangeKind;
 import core.events.ArrayCollectionEvent;

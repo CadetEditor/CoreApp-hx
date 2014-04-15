@@ -32,7 +32,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   
 package core.app.entities;
 
-import nme.utils.ByteArray;  
+//import nme.utils.ByteArray;  
 
 /**
 * This class implements an efficient lookup table for URI
@@ -71,7 +71,7 @@ class URIEncodingBitmap extends ByteArray
 		while (data.bytesAvailable) {
 			var c : Int = data.readByte();
 			if (c > 0x7f)                 
-				continue  // only escape low bytes 
+				continue;  // only escape low bytes 
 			
 			var enc : Int;
 			this.position = (c >> 3);

@@ -35,7 +35,7 @@
 package core.app.entities;
 
 import core.app.entities.URIEncodingBitmap;
-import nme.utils.ByteArray;
+//import nme.utils.ByteArray;
 import core.app.util.StringUtil;  
 /**
  * This class implements functions and utilities for working with URI's
@@ -1133,7 +1133,7 @@ class URI
 			value = Reflect.field(map, item);
 			
 			if (value == null)                 
-				value = ""  
+				value = "";
 
 			// Need to escape the name/value pair so that they 
 			// don't conflict with the query syntax (specifically 
@@ -1371,7 +1371,7 @@ class URI
 		thisExtension = getExtension(true);
 		
 		if (thisExtension == "")             
-			return false  
+			return false; 
 			
 		// Compare the extensions ignoring case
 		if (compareStr(thisExtension, extension, false) == 0)             
@@ -1751,7 +1751,7 @@ class URI
 		do {
 			relation = thisURI.getRelation(thatURI, caseSensitive);
 			if (relation == URI.EQUAL || relation == URI.PARENT)                 
-				break  
+				break;
 				
 				// If strBefore and strAfter end up being the same,
 				// we know we are at the root of the path because 
@@ -2119,7 +2119,7 @@ class URI
 			thatParts.shift();
 		
 		if (thatParts.length > 0 && thatParts[thatParts.length - 1] == "")             
-			thatParts.pop()  
+			thatParts.pop(); 
 		
 		// Now that we have the paths split into an array of directories, 
 		// we can compare the two paths.  We start from the left of side 
