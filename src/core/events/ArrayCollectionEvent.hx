@@ -35,17 +35,17 @@ class ArrayCollectionEvent extends Event
 		return new ArrayCollectionEvent(type, _kind, _index, _item);
     }
 	
-	private function get_Kind() : Int
+	private function get_kind() : Int
 	{
 		return _kind;
     }
 	
-	private function get_Index() : Int
+	private function get_index() : Int
 	{
 		return _index;
     }
 	
-	private function get_Item() : Dynamic
+	private function get_item() : Dynamic
 	{
 		return _item;
     }

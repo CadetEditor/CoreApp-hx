@@ -20,52 +20,55 @@ class FileSystemNode extends TreeNode
     public var isPopulated(get, set) : Bool;
 	private var _path : String;
 	private var _isPopulated : Bool;
+	
 	public function new()
     {
         super();
     }
+	
 	override private function set_Data(value : Dynamic) : Dynamic
 	{
 		path = try cast(value, String) catch(e:Dynamic) null;
         return value;
     }
+	
 	override private function get_Data() : Dynamic {
 		return path;
     }
 	
-	private function set_Path(value : String) : String
+	private function set_path(value : String) : String
 	{
 		_path = value;
         return value;
     }
 	
-	private function get_Path() : String
+	private function get_path() : String
 	{
 		return _path;
     }
 	
-	private function get_Filename() : String
+	private function get_filename() : String
 	{
 		return uri.getFilename();
     }
 	
-	private function get_Extension() : String
+	private function get_extension() : String
 	{
 		return uri.getExtension(true);
     }
 	
-	private function get_Uri() : URI
+	private function get_uri() : URI
 	{
 		return new URI(_path);
     }
 	
-	private function set_IsPopulated(value : Bool) : Bool
+	private function set_isPopulated(value : Bool) : Bool
 	{
 		_isPopulated = value;
         return value;
     }
 	
-	private function get_IsPopulated() : Bool
+	private function get_isPopulated() : Bool
 	{
 		return _isPopulated;
     }

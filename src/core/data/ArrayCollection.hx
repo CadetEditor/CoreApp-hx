@@ -25,6 +25,7 @@ import flash.utils.Proxy;
 import flash.events.Event;
 import flash.events.EventDispatcher;
 import flash.events.IEventDispatcher;
+import flash.errors.Error;
 
 @:meta(Event(type="core.events.ArrayCollectionEvent",name="change"))
 class ArrayCollection extends Proxy implements IEventDispatcher
@@ -94,7 +95,7 @@ class ArrayCollection extends Proxy implements IEventDispatcher
 	// Getters/Setters    
 	////////////////////////////////////////////////  
 	
-	private function set_Source(value : Array<Dynamic>) : Array<Dynamic>
+	private function set_source(value : Array<Dynamic>) : Array<Dynamic>
 	{
 		var oldValue : Array<Dynamic> = array; 
 		array = value;
@@ -102,7 +103,7 @@ class ArrayCollection extends Proxy implements IEventDispatcher
         return value;
     }
 	
-	private function get_Source() : Array<Dynamic>
+	private function get_source() : Array<Dynamic>
 	{
 		return array.substring();
     }
@@ -152,7 +153,7 @@ class ArrayCollection extends Proxy implements IEventDispatcher
 		return getItemAt(index - 1);
     }
 	
-	private function get_Length() : Int
+	private function get_length() : Int
 	{
 		return array.length;
     }

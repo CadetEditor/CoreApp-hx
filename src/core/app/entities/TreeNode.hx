@@ -14,6 +14,7 @@ import core.events.ArrayCollectionEvent;
 //import core.app.entities.EventDispatcher;
 //import nme.errors.Error;
 //import nme.events.EventDispatcher;
+import flash.errors.Error;
 import flash.events.EventDispatcher;
 import core.data.ArrayCollection;
 import core.events.ArrayCollectionChangeKind;
@@ -58,29 +59,29 @@ class TreeNode extends EventDispatcher
 		dispatchEvent(event);
     }
 	
-	private function get_Children() : ArrayCollection
+	private function get_children() : ArrayCollection
 	{
 		return _children;
     }
 	
-	private function set_Data(value : Dynamic) : Dynamic
+	private function set_data(value : Dynamic) : Dynamic
 	{
 		_data = value;
         return value;
     }
 	
-	private function get_Data() : Dynamic
+	private function get_data() : Dynamic
 	{
 		return _data;
     }
 	
-	private function set_Label(value : String) : String
+	private function set_label(value : String) : String
 	{
 		_label = value;
         return value;
     }
 	
-	private function get_Label() : String
+	private function get_label() : String
 	{
 		return _label;
     }

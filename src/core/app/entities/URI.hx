@@ -226,7 +226,7 @@ class URI
 	* state of the URI.
 	*/  
 	
-	private function set_HierState(state : Bool) : Bool
+	private function set_hierState(state : Bool) : Bool
 	{
 		if (state) {  
 			// Clear the non-hierarchical data  
@@ -257,7 +257,7 @@ class URI
         return state;
     }
 	
-	private function get_HierState() : Bool
+	private function get_hierState() : Bool
 	{
 		return (_nonHierarchical.length == 0);
     }  
@@ -616,12 +616,12 @@ class URI
 	 * The scheme of the URI.
 	 */  
 	
-	private function get_Scheme() : String
+	private function get_scheme() : String
 	{
 		return URI.unescapeChars(_scheme);
     }
 	
-	private function set_Scheme(schemeStr : String) : String
+	private function set_scheme(schemeStr : String) : String
 	{  
 		// Normalize the scheme  
 		var normalized : String = schemeStr.toLowerCase();
@@ -637,12 +637,12 @@ class URI
 	 * value, the resulting string is unescaped.
 	 */  
 	
-	private function get_Authority() : String
+	private function get_authority() : String
 	{
 		return URI.unescapeChars(_authority);
     }
 	
-	private function set_Authority(authorityStr : String) : String
+	private function set_authority(authorityStr : String) : String
 	{  
 		// Normalize the authority  
 		authorityStr = authorityStr.toLowerCase();
@@ -668,12 +668,12 @@ class URI
 	 * value, the resulting string is unescaped.</p>
 	 */  
 	
-	private function get_Username() : String
+	private function get_username() : String
 	{
 		return URI.unescapeChars(_username);
     }
 	
-	private function set_Username(usernameStr : String) : String
+	private function set_username(usernameStr : String) : String
 	{
 		_username = URI.fastEscapeChars(usernameStr, URI.URIuserpassExcludedBitmap);  
 		// Only hierarchical URI's can have a username.  
@@ -686,12 +686,12 @@ class URI
 	 * @see URI.username
 	 */  
 	
-	private function get_Password() : String
+	private function get_password() : String
 	{
 		return URI.unescapeChars(_password);
     }
 	
-	private function set_Password(passwordStr : String) : String
+	private function set_password(passwordStr : String) : String
 	{
 		_password = URI.fastEscapeChars(passwordStr, URI.URIuserpassExcludedBitmap);  
 		// Only hierarchical URI's can have a password.  
@@ -707,12 +707,12 @@ class URI
 	 * <p>http://site.com:8080/index.htm</p>
 	 */  
 	
-	private function get_Port() : String
+	private function get_port() : String
 	{
 		return URI.unescapeChars(_port);
     }
 	
-	private function set_Port(portStr : String) : String
+	private function set_port(portStr : String) : String
 	{
 		_port = URI.escapeChars(portStr);  
 		// Only hierarchical URI's can have a port.  
@@ -758,12 +758,12 @@ class URI
 	 * </listing>
 	 */  
 	
-	private function get_Path() : String
+	private function get_path() : String
 	{
 		return URI.unescapeChars(_path);
     }
 	
-	private function set_Path(pathStr : String) : String
+	private function set_path(pathStr : String) : String
 	{
 		this._path = URI.fastEscapeChars(pathStr, URI.URIpathExcludedBitmap);
 		if (this._scheme == UNKNOWN_SCHEME) {  
@@ -811,11 +811,11 @@ class URI
 	 * @see URI.getQueryValue, URI.getQueryByMap
 	 */  
 	
-	private function get_Query() : String {
+	private function get_query() : String {
 		return URI.unescapeChars(_query);
     }
 	
-	private function set_Query(queryStr : String) : String
+	private function set_query(queryStr : String) : String
 	{
 		_query = URI.fastEscapeChars(queryStr, URI.URIqueryExcludedBitmap);
         return queryStr;
@@ -829,12 +829,12 @@ class URI
 	 * handling the proper escaping of the query part.
 	 */  
 	
-	private function get_QueryRaw() : String
+	private function get_queryRaw() : String
 	{
 		return _query;
     }
 	
-	private function set_QueryRaw(queryStr : String) : String
+	private function set_queryRaw(queryStr : String) : String
 	{
 		_query = queryStr;
         return queryStr;
@@ -845,12 +845,12 @@ class URI
 	 * both hierarchical and non-hierarchical URI's.
 	 */  
 	
-	private function get_Fragment() : String
+	private function get_fragment() : String
 	{
 		return URI.unescapeChars(_fragment);
     }
 	
-	private function set_Fragment(fragmentStr : String) : String
+	private function set_fragment(fragmentStr : String) : String
 	{
 		_fragment = URI.fastEscapeChars(fragmentStr, URIfragmentExcludedBitmap);
         return fragmentStr;
@@ -863,12 +863,12 @@ class URI
 	 * for non-hierarchical URI's.  
 	 */  
 	
-	private function get_NonHierarchical() : String
+	private function get_nonHierarchical() : String
 	{
 		return URI.unescapeChars(_nonHierarchical);
     }
 	
-	private function set_NonHierarchical(nonHier : String) : String
+	private function set_nonHierarchical(nonHier : String) : String
 	{
 		_nonHierarchical = URI.fastEscapeChars(nonHier, URInonHierexcludedBitmap);  
 		// This is a non-hierarchical URI.  
@@ -1538,13 +1538,13 @@ class URI
 	 * objects to dynamically resolve URI's before comparison.
 	 */  
 	
-	private static function set_Resolver(resolver : IURIResolver) : IURIResolver
+	private static function set_resolver(resolver : IURIResolver) : IURIResolver
 	{
 		_resolver = resolver;
         return resolver;
     }
 	
-	private static function get_Resolver() : IURIResolver
+	private static function get_resolver() : IURIResolver
 	{
 		return _resolver;
     }  
