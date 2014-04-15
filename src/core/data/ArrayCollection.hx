@@ -38,7 +38,8 @@ class ArrayCollection extends Proxy implements IEventDispatcher
 	public function new(source : Array<Dynamic> = null)
     {
         super();
-		array = source == (null) ? [] : source;dispatcher = new EventDispatcher(this);
+		array = source == (null) ? [] : source;
+		dispatcher = new EventDispatcher(this);
     }  
 	
 	////////////////////////////////////////////////    

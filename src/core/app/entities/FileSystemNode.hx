@@ -26,13 +26,13 @@ class FileSystemNode extends TreeNode
         super();
     }
 	
-	override private function set_Data(value : Dynamic) : Dynamic
+	override private function set_data(value : Dynamic) : Dynamic
 	{
 		path = try cast(value, String) catch(e:Dynamic) null;
         return value;
     }
 	
-	override private function get_Data() : Dynamic {
+	override private function get_data() : Dynamic {
 		return path;
     }
 	
