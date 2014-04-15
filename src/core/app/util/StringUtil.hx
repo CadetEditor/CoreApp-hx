@@ -56,7 +56,9 @@ class StringUtil
 	public static function isWhitespace(character : String) : Bool
 	{
         switch (character) {
-			case " ", "\t", "\r", "\n", "\f":
+			// replaced \f with \x0C
+			// https://groups.google.com/forum/#!msg/haxelang/HDQchW_fy0E/dyvaomgt1dAJ
+			case " ", "\t", "\r", "\n" , "\x0C":
 				return true;
 			default:
 				return false;

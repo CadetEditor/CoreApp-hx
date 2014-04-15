@@ -32,7 +32,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   
 package core.app.entities;
 
-//import nme.utils.ByteArray;  
+//import nme.utils.ByteArray;
+import flash.utils.ByteArray;
 
 /**
 * This class implements an efficient lookup table for URI

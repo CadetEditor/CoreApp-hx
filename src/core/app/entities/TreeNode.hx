@@ -14,6 +14,7 @@ import core.events.ArrayCollectionEvent;
 //import core.app.entities.EventDispatcher;
 //import nme.errors.Error;
 //import nme.events.EventDispatcher;
+import flash.events.EventDispatcher;
 import core.data.ArrayCollection;
 import core.events.ArrayCollectionChangeKind;
 import core.events.ArrayCollectionEvent;

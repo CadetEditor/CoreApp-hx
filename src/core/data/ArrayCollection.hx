@@ -21,6 +21,10 @@ import core.events.ArrayCollectionEvent;
 //import nme.utils.Proxy;
 import core.events.ArrayCollectionChangeKind;
 import core.events.ArrayCollectionEvent;
+import flash.utils.Proxy;
+import flash.events.Event;
+import flash.events.EventDispatcher;
+import flash.events.IEventDispatcher;
 
 @:meta(Event(type="core.events.ArrayCollectionEvent",name="change"))
 class ArrayCollection extends Proxy implements IEventDispatcher
@@ -162,7 +166,8 @@ class ArrayCollection extends Proxy implements IEventDispatcher
 	// Implement IEventDispatcher    
 	////////////////////////////////////////////////  
 	
-	public function addEventListener(type : String, listener : Function, useCapture : Bool = false, priority : Int = 0, useWeakReference : Bool = false) : Void
+	// note: replaced listener : Function with : Dynamic
+	public function addEventListener(type : String, listener : Dynamic, useCapture : Bool = false, priority : Int = 0, useWeakReference : Bool = false) : Void
 	{
 		dispatcher.addEventListener(type, listener, useCapture, priority, useWeakReference);
     }
@@ -177,7 +182,8 @@ class ArrayCollection extends Proxy implements IEventDispatcher
 		return dispatcher.hasEventListener(type);
     }
 	
-	public function removeEventListener(type : String, listener : Function, useCapture : Bool = false) : Void
+	// note: replaced listener : Function with : Dynamic
+	public function removeEventListener(type : String, listener : Dynamic, useCapture : Bool = false) : Void
 	{
 		dispatcher.removeEventListener(type, listener, useCapture);
     }

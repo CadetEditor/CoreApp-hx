@@ -13,7 +13,7 @@ class Main extends Sprite
 	/* ENTRY POINT */
 	
 	/*
-	 * Look for all AS3HX WARNING and TODOs
+	 * Look for all 'AS3HX WARNING', 'note' and 'TODO's
 	 */
 	
 	function resize(e) 
