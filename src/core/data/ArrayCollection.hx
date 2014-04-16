@@ -27,8 +27,8 @@ import flash.events.EventDispatcher;
 import flash.events.IEventDispatcher;
 import flash.errors.Error;
 
-@:meta(Event(type="core.events.ArrayCollectionEvent",name="change"))
-class ArrayCollection extends Proxy implements IEventDispatcher
+@:meta(Event(type = "core.events.ArrayCollectionEvent", name = "change"))
+class ArrayCollection extends Proxy implements IEventDispatcher implements ArrayAccess<Dynamic>
 {
     public var source(get, set) : Array<Dynamic>;
     public var length(get, never) : Int;
@@ -45,6 +45,8 @@ class ArrayCollection extends Proxy implements IEventDispatcher
 	////////////////////////////////////////////////    
 	// Public methods    
 	////////////////////////////////////////////////  
+	
+	
 	
 	public function addItemAt(item : Dynamic, index : Int) : Void
 	{
@@ -84,6 +86,7 @@ class ArrayCollection extends Proxy implements IEventDispatcher
 	
 	public function addItem(value : Dynamic) : Void
 	{
+		//array.push(value);
 		this[array.length] = value;
     }
 	
