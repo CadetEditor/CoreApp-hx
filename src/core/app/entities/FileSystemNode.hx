@@ -28,7 +28,11 @@ class FileSystemNode extends TreeNode
 	
 	override private function set_data(value : Dynamic) : Dynamic
 	{
-		path = try cast(value, String) catch(e:Dynamic) null;
+		try { 
+			path = cast(value, String);
+		} catch (e:Dynamic) {
+			path = null;
+		}
         return value;
     }
 	

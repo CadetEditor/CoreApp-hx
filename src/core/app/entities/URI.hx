@@ -538,14 +538,18 @@ class URI
 	
 	private function verifyAlpha(str : String) : Bool
 	{
-		var pattern : RegExp = new EReg('[^a-z]', "");
-		var index : Int;
+		var r = new EReg('[^a-z]', "");
+		//var index : Int;
 		str = str.toLowerCase(); 
-		index = str.indexOf(pattern);
-		if (index == -1)             
-			return true
-        else 
-			return false;
+		
+		// todo: test
+		return r.match(str);
+		
+		//index = str.indexOf(pattern);
+		//if (index == -1)             
+		//	return true
+        //else 
+		//	return false;
     }  
 	
 	/**
@@ -942,7 +946,8 @@ class URI
 	{  
 		// We can just use the default AS function.  It seems to    
 		// decode everything correctly  
-		var unescaped : String; unescaped = decodeURIComponent(escaped);
+		// todo: test
+		var unescaped : String; unescaped = StringTools.urlDecode(escaped);
 		return unescaped;
     }  
 	
@@ -970,7 +975,7 @@ class URI
 		var c : String;
 		var x : Int;
         var i : Int;
-		for (unescaped.length) {
+		for (i in 0...unescaped.length) {
 			c = unescaped.charAt(i); x = bitmap.ShouldEscape(c);
 			if (x != 0) { c = Std.string(x);
 				if (c.length == 1)                     
@@ -1078,7 +1083,7 @@ class URI
 		var name : String;
         var value : String;
 		var index : Int;
-		var map : Dynamic = new Dynamic();  
+		var map : Dynamic = {};  
 		
 		// We need the raw query string, no unescaping.  
 		queryStr = this._query; 
@@ -1375,7 +1380,7 @@ class URI
 			return false; 
 			
 		// Compare the extensions ignoring case
-		if (compareStr(thisExtension, extension, false) == 0)             
+		if (!compareStr(thisExtension, extension, false))             
 			return true;
         else 
 			return false;
@@ -1669,7 +1674,7 @@ class URI
 				thatParts.pop();
             }  
 			// This may be a child of the one passed in  
-			for (thatParts.length) {
+			for (i in 0...thatParts.length) {
 				thisPart = thisParts[i];
 				thatPart = thatParts[i];
 				if (compareStr(thisPart, thatPart, caseSensitive) == false)                     
@@ -1695,7 +1700,7 @@ class URI
 				thisParts.pop();
             }  
 			// This may be the parent of the one passed in  
-			for (thisParts.length) {
+			for (i in 0...thisParts.length) {
 				thisPart = thisParts[i];
 				thatPart = thatParts[i];
 				if (compareStr(thisPart, thatPart, caseSensitive) == false)                     
@@ -1903,11 +1908,12 @@ class URI
 		// to this object's path.  
 		thisParts = thisParts.concat(thatParts);
 		
-		for (thisParts.length) {
+		for (i in 0...thisParts.length) {
 			curDir = thisParts[i];
 			lastIsDotOperation = false;
 			if (curDir == ".") {
-				thisParts.splice(i, 1);i = i - 1;  // account for removing this item  
+				thisParts.splice(i, 1);
+				//i = i - 1;  // account for removing this item  todo: test - cannot modify loop variable
 				lastIsDotOperation = true;
             }
             else if (curDir == "..") { 
@@ -1919,7 +1925,8 @@ class URI
 						// do nothing.  
                     }
                     else {
-						thisParts.splice(i - 1, 2);i = i - 2;
+						thisParts.splice(i - 1, 2);
+						//i = i - 2; todo: test - loop variable cannot be modified
                     }
                 }
                 else {  
@@ -1944,7 +1951,7 @@ class URI
 						// Which will put you in /bin.  Essentially, the extra    
 						// ".."'s will just get eaten.  
 						thisParts.splice(i, 1);
-						i = i - 1;
+						//i = i - 1; todo: test - loop variable cannot be modified
                     }
                 }
 				lastIsDotOperation = true;
@@ -1984,7 +1991,7 @@ class URI
 	{
 		var pathStr : String = "";
 		var i : Int;
-		for (parts.length) {
+		for (i in 0...parts.length) {
 			if (pathStr.length > 0)                 
 				pathStr += "/";
 				
@@ -2167,7 +2174,7 @@ class URI
 		// each part left over in the given URI, we need to move up one   
 		// directory to get where we are.    
 		var dotdot : String = "..";
-		for (thatParts.length) {
+		for (i in 0...thatParts.length) {
 			finalParts.push(dotdot);
         }  
 		
@@ -2237,7 +2244,8 @@ class URI
         }  
 		
 		// Some users love the backslash key.  Fix it. 
-		unknown = StringUtil.replaceAll(unknown, new EReg('\\\\', "g"), "/");  
+		//unknown = StringUtil.replaceAll(unknown, new EReg('\\\\', "g"), "/");  
+		unknown = StringUtil.replaceAll(unknown, "\\", "/");
 		
 		// Check for any obviously missing scheme.  
 		if (unknown.length >= 2) {

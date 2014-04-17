@@ -62,14 +62,14 @@ class URIEncodingBitmap extends ByteArray
 		var data : ByteArray = new ByteArray();  
 		
 		// Initialize our 128 bits (16 bytes) to zero  
-		for (16) {
+		for (i in 0...16) {
 			this.writeByte(0);
         }
 		
 		data.writeUTFBytes(charsToEscape);
 		data.position = 0;
 		
-		while (data.bytesAvailable) {
+		while (data.bytesAvailable > 0) {
 			var c : Int = data.readByte();
 			if (c > 0x7f)                 
 				continue;  // only escape low bytes 
@@ -111,7 +111,8 @@ class URIEncodingBitmap extends ByteArray
 		data.position = 0;
 		c = data.readByte();
 		
-		if (c & 0x80) {  
+		// todo: test
+		if ((c & 0x80) > 0) {  
 			// don't escape high byte characters.  It can make international    
 			// URI's unreadable.  We just want to escape characters that would    
 			// make URI syntax ambiguous.  
