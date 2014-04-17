@@ -9,15 +9,17 @@
 // =================================================================================================  
 package core.app.resources;
 
+/*
 import core.app.resources.BitmapData;
 import core.app.resources.Loader;
 import core.app.resources.Matrix;
-import nme.display.Bitmap;
-import nme.display.BitmapData;
-import nme.display.Loader;
-import nme.events.Event;
-import nme.geom.Matrix;
-import nme.utils.ByteArray;
+*/
+import flash.display.Bitmap;
+import flash.display.BitmapData;
+import flash.display.Loader;
+import flash.events.Event;
+import flash.geom.Matrix;
+import flash.utils.ByteArray;
 import core.app.entities.URI;
 
 class ExternalBitmapDataResource extends AbstractExternalResource

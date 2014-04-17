@@ -9,8 +9,7 @@
 // =================================================================================================  
 package core.app.events;
 
-import core.app.events.IResource;
-import nme.events.Event;
+import flash.events.Event;
 import core.app.resources.IResource;
 
 class ResourceManagerEvent extends Event

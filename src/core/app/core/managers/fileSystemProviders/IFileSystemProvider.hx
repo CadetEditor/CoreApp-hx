@@ -10,7 +10,7 @@
 
 package core.app.core.managers.filesystemproviders;
 
-import core.app.core.managers.filesystemproviders.ByteArray;
+/*
 import core.app.core.managers.filesystemproviders.ICreateDirectoryOperation;
 import core.app.core.managers.filesystemproviders.IDeleteFileOperation;
 import core.app.core.managers.filesystemproviders.IDoesFileExistOperation;
@@ -21,8 +21,9 @@ import core.app.core.managers.filesystemproviders.ITraverseAllDirectoriesOperati
 import core.app.core.managers.filesystemproviders.ITraverseToDirectoryOperation;
 import core.app.core.managers.filesystemproviders.IWriteFileOperation;
 import core.app.core.managers.filesystemproviders.URI;
-import nme.events.IEventDispatcher;
-import nme.utils.ByteArray;
+*/
+import flash.events.IEventDispatcher;
+import flash.utils.ByteArray;
 import core.app.core.managers.filesystemproviders.operations.ICreateDirectoryOperation;
 import core.app.core.managers.filesystemproviders.operations.IDeleteFileOperation;
 import core.app.core.managers.filesystemproviders.operations.IDoesFileExistOperation;

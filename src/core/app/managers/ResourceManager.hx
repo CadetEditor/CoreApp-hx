@@ -9,6 +9,7 @@
 // =================================================================================================  
 package core.app.managers;
 
+/*
 import core.app.managers.Event;
 import core.app.managers.EventDispatcher;
 import core.app.managers.IExternalResource;
@@ -17,17 +18,18 @@ import core.app.managers.IFileSystemProvider;
 import core.app.managers.IResource;
 import core.app.managers.ResourceManagerEvent;
 import core.app.managers.URI;
-import nme.errors.Error;
-import nme.events.Event;
-import nme.events.EventDispatcher;
-import nme.utils.Dictionary;
+*/
+import flash.errors.Error;
+import flash.events.Event;
+import flash.events.EventDispatcher;
+import flash.utils.Dictionary;
 import core.app.core.managers.filesystemproviders.IFileSystemProvider;
 import core.app.entities.URI;
 import core.app.events.ResourceManagerEvent;
 import core.app.resources.IExternalResource;
 import core.app.resources.IFactoryResource;
 import core.app.resources.IResource;
-import core.app.util.IntrospectionUtil;
+//import core.app.util.IntrospectionUtil;
 
 @:meta(Event(type="core.app.events.ResourceManagerEvent",name="resourceAdded"))
 class ResourceManager extends EventDispatcher

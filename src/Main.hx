@@ -1,7 +1,6 @@
 package ;
 
-//import core.app.entities;
-import core.app.entities.FileSystemNode;
+import core.app.controllers.DefaultExternalResourceParser;
 import flash.display.Sprite;
 import flash.events.Event;
 import flash.Lib;
@@ -28,6 +27,7 @@ class Main extends Sprite
 		inited = true;
 
 		// (your code here)
+		var t = new DefaultExternalResourceParser();
 		
 		// Stage:
 		// stage.stageWidth x stage.stageHeight @ stage.dpiScale

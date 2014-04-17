@@ -10,9 +10,9 @@
 package core.app.resources;
 
 import core.app.resources.IFactoryResource;
-import nme.errors.Error;
+import flash.errors.Error;
 import core.app.resources.IFactoryResource;
-import core.app.util.IntrospectionUtil;
+//import core.app.util.IntrospectionUtil;
 
 class FactoryResource implements IFactoryResource
 {

@@ -24,8 +24,8 @@ THE SOFTWARE.
 
 package core.app.util.swfclassexplorer;
 
-import core.app.util.swfclassexplorer.Traits;
-import nme.utils.ByteArray;
+//import core.app.util.swfclassexplorer.Traits;
+import flash.utils.ByteArray;
 import core.app.util.swfclassexplorer.data.Traits; 
 
 /**

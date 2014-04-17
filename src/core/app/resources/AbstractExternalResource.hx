@@ -8,7 +8,7 @@
 //    
 // =================================================================================================  
 package core.app.resources;
-
+/*
 import core.app.resources.ByteArray;
 import core.app.resources.Event;
 import core.app.resources.EventDispatcher;
@@ -16,10 +16,11 @@ import core.app.resources.IExternalResource;
 import core.app.resources.IFileSystemProvider;
 import core.app.resources.IReadFileOperation;
 import core.app.resources.URI;
-import nme.errors.Error;
-import nme.events.Event;
-import nme.events.EventDispatcher;
-import nme.utils.ByteArray;
+*/
+import flash.errors.Error;
+import flash.events.Event;
+import flash.events.EventDispatcher;
+import flash.utils.ByteArray;
 import core.app.core.managers.filesystemproviders.IFileSystemProvider;
 import core.app.core.managers.filesystemproviders.operations.IReadFileOperation;
 import core.app.entities.URI;

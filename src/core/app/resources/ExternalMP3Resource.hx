@@ -1,5 +1,5 @@
 package core.app.resources;
-
+/*
 import core.app.resources.AbcBuilder;
 import core.app.resources.AbcFile;
 import core.app.resources.AbcSerializer;
@@ -24,19 +24,22 @@ import com.codeazur.as3swf.tags.TagEnd;
 import com.codeazur.as3swf.tags.TagFileAttributes;
 import com.codeazur.as3swf.tags.TagShowFrame;
 import com.codeazur.as3swf.tags.TagSymbolClass;
-import nme.display.Loader;
-import nme.display.LoaderInfo;
-import nme.events.Event;
-import nme.media.Sound;
-import nme.system.LoaderContext;
-import nme.utils.ByteArray;
+*/
+import flash.display.Loader;
+import flash.display.LoaderInfo;
+import flash.events.Event;
+import flash.media.Sound;
+import flash.system.LoaderContext;
+import flash.utils.ByteArray;
 import core.app.entities.URI;
+/*
 import org.as3commons.bytecode.abc.AbcFile;
 import org.as3commons.bytecode.emit.IAbcBuilder;
 import org.as3commons.bytecode.emit.IClassBuilder;
 import org.as3commons.bytecode.emit.IPackageBuilder;
 import org.as3commons.bytecode.emit.impl.AbcBuilder;
 import org.as3commons.bytecode.io.AbcSerializer;
+*/
 
 class ExternalMP3Resource extends AbstractExternalResource
 {

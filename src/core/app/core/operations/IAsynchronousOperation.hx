@@ -9,9 +9,8 @@
 // =================================================================================================  
 package core.app.core.operations;
 
-import core.app.core.operations.IEventDispatcher;
 import core.app.core.operations.IOperation;
-import nme.events.IEventDispatcher;
+import flash.events.IEventDispatcher;
 import core.app.core.operations.IOperation;
 
 @:meta(Event(type="core.app.events.OperationProgressEvent",name="progress"))

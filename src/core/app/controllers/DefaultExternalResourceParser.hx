@@ -10,7 +10,7 @@
 
 package core.app.controllers;
 
-import core.app.controllers.ByteArray;
+/*
 import core.app.controllers.ErrorEvent;
 import core.app.controllers.Event;
 import core.app.controllers.ExternalBitmapDataResource;
@@ -27,16 +27,17 @@ import core.app.controllers.LoaderContext;
 import core.app.controllers.LoaderInfo;
 import core.app.controllers.ResourceManager;
 import core.app.controllers.URI;
-import nme.errors.Error;
-import nme.display.BitmapData;
-import nme.display.DisplayObject;
-import nme.display.Loader;
-import nme.display.LoaderInfo;
-import nme.events.ErrorEvent;
-import nme.events.Event;
-import nme.system.ApplicationDomain;
-import nme.system.LoaderContext;
-import nme.utils.ByteArray;
+*/
+import flash.errors.Error;
+import flash.display.BitmapData;
+import flash.display.DisplayObject;
+import flash.display.Loader;
+import flash.display.LoaderInfo;
+import flash.events.ErrorEvent;
+import flash.events.Event;
+import flash.system.ApplicationDomain;
+import flash.system.LoaderContext;
+import flash.utils.ByteArray;
 import core.app.core.managers.filesystemproviders.IFileSystemProvider;
 import core.app.core.managers.filesystemproviders.operations.IReadFileOperation;
 import core.app.entities.URI;
@@ -47,7 +48,7 @@ import core.app.resources.ExternalXMLResource;
 import core.app.resources.FactoryResource;
 import core.app.resources.IExternalResource;
 import core.app.resources.IResource;
-import core.app.util.IntrospectionUtil;
+//import core.app.util.IntrospectionUtil;
 import core.app.util.swfclassexplorer.SwfClassExplorer;
 
 class DefaultExternalResourceParser implements IExternalResourceParser
@@ -57,7 +58,7 @@ class DefaultExternalResourceParser implements IExternalResourceParser
 	private var loader : Loader;
 	private var swfResources : Array<Dynamic>;
 	private var bytes : ByteArray;
-	
+		
 	public function new()
     {
 		swfResources = [];
@@ -79,22 +80,26 @@ class DefaultExternalResourceParser implements IExternalResourceParser
 
         switch (extension)
         {
-			case "png", "jpg":resource = new ExternalBitmapDataResource(resourceID, uri);
+			case "png", "jpg":
+				resource = new ExternalBitmapDataResource(resourceID, uri);
 				resourceManager.addResource(resource);
 				return [resource];
 			
-			case "swf":var readFileOperation : IReadFileOperation = fileSystemProvider.readFile(uri);
+			case "swf":
+				var readFileOperation : IReadFileOperation = fileSystemProvider.readFile(uri);
 				readFileOperation.addEventListener(ErrorEvent.ERROR, readSWFFileErrorHandler);
 				readFileOperation.addEventListener(Event.COMPLETE, readSWFFileCompleteHandler);
 				readFileOperation.execute();
 				swfResources = [];
 				return swfResources;
 			
-			case "xml":resource = new ExternalXMLResource(resourceID, uri);
+			case "xml":
+				resource = new ExternalXMLResource(resourceID, uri);
 				resourceManager.addResource(resource);
 				return [resource];
 			
-			case "mp3":resource = new ExternalMP3Resource(resourceID, uri);
+			case "mp3":
+				resource = new ExternalMP3Resource(resourceID, uri);
 				resourceManager.addResource(resource);
 				return [resource];
         }

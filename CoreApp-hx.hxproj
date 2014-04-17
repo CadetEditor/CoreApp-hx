@@ -35,7 +35,7 @@
   </haxelib>
   <!-- Class files to compile (other referenced classes will automatically be included) -->
   <compileTargets>
-    <!-- example: <compile path="..." /> -->
+    <compile path="src\Main.hx" />
   </compileTargets>
   <!-- Assets to embed into the output SWF -->
   <library>

@@ -10,8 +10,7 @@
 
 package core.app.core.managers.filesystemproviders.operations;
 
-import core.app.core.managers.filesystemproviders.operations.ByteArray;
-import nme.utils.ByteArray;
+import flash.utils.ByteArray;
 interface IReadFileOperation extends IFileSystemProviderOperation
 {
     var bytes(get, never) : ByteArray;

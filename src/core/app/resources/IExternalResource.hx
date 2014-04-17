@@ -9,8 +9,7 @@
 // =================================================================================================  
 package core.app.resources;
 
-import core.app.resources.IEventDispatcher;
-import nme.events.IEventDispatcher;
+import flash.events.IEventDispatcher;
 import core.app.core.managers.filesystemproviders.IFileSystemProvider;
 import core.app.entities.URI;
 

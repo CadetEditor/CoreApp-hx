@@ -1,16 +1,17 @@
 package core.app.resources;
 
-import nme.events.Event;
-import nme.utils.ByteArray;
+import flash.events.Event;
+import flash.utils.ByteArray;
 import core.app.entities.URI;
 
 class ExternalXMLResource extends AbstractExternalResource
 {
-	private var xml : FastXML;
+	private var xml : Xml;
 	
 	public function new(id : String, uri : URI)
     {
-		super(id, uri);type = FastXML;
+		super(id, uri);
+		type = XML;
     }
 	
 	override public function unload() : Void
