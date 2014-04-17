@@ -37,7 +37,7 @@ class StringUtil
 	public static function replaceAll(str : String, pattern : String, replaceString : String) : String
 	{
 		while (str.indexOf(pattern) != -1) {
-			str = str.replace(pattern, replaceString);
+			str = StringTools.replace(str, pattern, replaceString);
         }
 		
 		return str;

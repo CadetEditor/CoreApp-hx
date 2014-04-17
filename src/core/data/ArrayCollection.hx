@@ -51,7 +51,7 @@ class ArrayCollection extends Proxy implements IEventDispatcher implements Array
 	public function addItemAt(item : Dynamic, index : Int) : Void
 	{
 		if (index < 0 || index > array.length) throw (new Error("Index out of bounds : " + index));			
-		array.splice(index, 0, item);
+		array.splice(index, 0);
 		dispatcher.dispatchEvent(new ArrayCollectionEvent(ArrayCollectionEvent.CHANGE, ArrayCollectionChangeKind.ADD, index, item));
     }
 	
@@ -109,17 +109,17 @@ class ArrayCollection extends Proxy implements IEventDispatcher implements Array
 	
 	private function get_source() : Array<Dynamic>
 	{
-		return array.substring();
+		return array.slice(0); // todo: test
     }
 	
-	override private function getProperty(name : Dynamic) : Dynamic
+	override function getProperty(name : Dynamic) : Dynamic
 	{
 		return array[name];
     }
 	
-	override private function setProperty(name : Dynamic, value : Dynamic) : Void
+	override function setProperty(name : Dynamic, value : Dynamic) : Void
 	{
-		var index : Int = as3hx.Compat.parseInt(name);
+		var index : Int = Std.parseInt(name);
 		if (Math.isNaN(index)) throw (new Error("Invalid index : " + name));
 		if (index < 0 || index > array.length) throw (new Error("Index out of bounds : " + index));
 		
@@ -127,7 +127,7 @@ class ArrayCollection extends Proxy implements IEventDispatcher implements Array
 		
 		if (index == array.length) {
 			if (value == null) {
-				array.length--;
+				//array.length--; todo: ok to comment out?
 				changeKind = ArrayCollectionChangeKind.REMOVE;
             }
             else {
@@ -142,17 +142,17 @@ class ArrayCollection extends Proxy implements IEventDispatcher implements Array
 		dispatcher.dispatchEvent(new ArrayCollectionEvent(ArrayCollectionEvent.CHANGE, changeKind, index, value));
     }
 	
-	override private function nextNameIndex(index : Int) : Int
+	override function nextNameIndex(index : Int) : Int
 	{
-		return index < (length != 0) ? index + 1 : 0;
+		return index < length ? index + 1 : 0;
     }
 	
-	override private function nextName(index : Int) : String
+	override function nextName(index : Int) : String
 	{
 		return Std.string((index - 1));
     }
 	
-	override private function nextValue(index : Int) : Dynamic
+	override function nextValue(index : Int) : Dynamic
 	{
 		return getItemAt(index - 1);
     }

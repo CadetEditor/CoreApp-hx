@@ -280,13 +280,13 @@ class URI
         }
 		
 		if (hierState) { 
-			if (_path.search("\\") != -1)                 
+			if (_path.indexOf("\\") != -1)                 
 				return false; // local path
             else if (isRelative() == false && _scheme == UNKNOWN_SCHEME)                 
 				return false; // It's an absolute URI, but it has a bad scheme
         }
         else {
-			if (_nonHierarchical.search("\\") != -1) 
+			if (_nonHierarchical.indexOf("\\") != -1) 
 			return false; // some kind of local path
         }  
 		
@@ -387,8 +387,8 @@ class URI
         }  
 		
 		// Now try to find the scheme part  
-		index = baseURI.search(":");
-		index2 = baseURI.search("/");
+		index = baseURI.indexOf(":");
+		index2 = baseURI.indexOf("/");
 		var containsColon : Bool = (index != -1);
 		var containsSlash : Bool = (index2 != -1);  
 		
@@ -456,7 +456,7 @@ class URI
 					baseURI = baseURI.substr(1, baseURI.length - 1);
             }
 			
-			index = baseURI.search("/");
+			index = baseURI.indexOf("/");
 			if (index == -1) {  
 				// No path.  We must have passed something like "http://something.com"  
 				_authority = baseURI;
@@ -469,7 +469,7 @@ class URI
 			
 			// Check to see if the URI has any username or password information.
 			// For example:  ftp://username:password@server.com    
-			index = _authority.search("@");
+			index = _authority.indexOf("@");
 			if (index != -1) {  
 				// We have a username and possibly a password  
 				_username = _authority.substr(0, index);  
@@ -477,7 +477,7 @@ class URI
 				_authority = _authority.substr(index + 1);  
 				// Skip the '@'    
 				// Now check to see if the username also has a password  
-				index = _username.search(":");
+				index = _username.indexOf(":");
 				if (index != -1) {
 					_password = _username.substring(index + 1, _username.length);
 					_username = _username.substr(0, index);
@@ -492,7 +492,7 @@ class URI
 			// Lastly, check to see if the authorty has a port number.
 			// This is parsed after the username/password to avoid conflicting 
 			// with the ':' in the 'username:password' if one exists.     
-			index = _authority.search(":");
+			index = _authority.indexOf(":");
 			if (index != -1) {
 				_port = _authority.substring(index + 1, _authority.length); // skip the ':' 
 				_authority = _authority.substr(0, index);
@@ -540,7 +540,8 @@ class URI
 	{
 		var pattern : RegExp = new EReg('[^a-z]', "");
 		var index : Int;
-		str = str.toLowerCase(); index = str.search(pattern);
+		str = str.toLowerCase(); 
+		index = str.indexOf(pattern);
 		if (index == -1)             
 			return true
         else 
@@ -2236,7 +2237,7 @@ class URI
         }  
 		
 		// Some users love the backslash key.  Fix it. 
-		unknown = unknown.replace(new EReg('\\\\', "g"), "/");  
+		unknown = StringUtil.replaceAll(unknown, new EReg('\\\\', "g"), "/");  
 		
 		// Check for any obviously missing scheme.  
 		if (unknown.length >= 2) {
@@ -2345,21 +2346,21 @@ class URI
 	public function subpath(startIndex : Int, endIndex : Int = -1) : URI
 	{
 		var localPath : String = path;
-		localPath = StringTools.replaceAll(localPath, "\\", "/");
+		localPath = StringTools.replace(localPath, "\\", "/");
 		var split : Array<Dynamic> = localPath.split("/");
 		var isFolder : Bool = isDirectory();
 		if (endIndex == -1) {
 			endIndex = split.length;
         }
         else {
-			endIndex = Math.min(split.length - 1, endIndex);
+			endIndex = Std.int(Math.min(split.length - 1, endIndex));
         }
 		
 		var outputPath : String = "";
 		
 		for (i in startIndex...endIndex) {
 			if (split[i] == ""){
-				i++;
+				//i++;
 				continue;
             };
 			
