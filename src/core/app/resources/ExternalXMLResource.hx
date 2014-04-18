@@ -11,7 +11,7 @@ class ExternalXMLResource extends AbstractExternalResource
 	public function new(id : String, uri : URI)
     {
 		super(id, uri);
-		type = XML;
+		type = Xml;
     }
 	
 	override public function unload() : Void
@@ -24,7 +24,7 @@ class ExternalXMLResource extends AbstractExternalResource
 	
 	override private function parseBytes(bytes : ByteArray) : Void
 	{
-		xml = cast((bytes.readUTFBytes(bytes.length)), XML);
+		xml = cast((bytes.readUTFBytes(bytes.length)), Xml);
 		isLoading = false;
 		isLoaded = true;
 		dispatchEvent(new Event(Event.COMPLETE));

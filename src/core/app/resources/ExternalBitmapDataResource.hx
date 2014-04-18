@@ -67,7 +67,7 @@ class ExternalBitmapDataResource extends AbstractExternalResource
 		return bitmapData;
     }
 	
-	private function get_Icon() : BitmapData
+	private function get_icon() : BitmapData
 	{
 		load();
 		return iconBitmapData;

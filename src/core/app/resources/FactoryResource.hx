@@ -35,7 +35,7 @@ class FactoryResource implements IFactoryResource
 		return _label;
     }
 	
-	private function get_Icon() : Class<Dynamic>
+	private function get_icon() : Class<Dynamic>
 	{
 		return _icon;
     }  
@@ -51,7 +51,8 @@ class FactoryResource implements IFactoryResource
 		if (_constructorParams == null) {
 			return Type.createInstance(_type, []);
         }
-		var p : Array<Dynamic> = _constructorParams;  // Eeeeeewwww! Yeah, I know. But no other way.  var _sw0_ = (p.length);        
+		var p : Array<Dynamic> = _constructorParams;  // Eeeeeewwww! Yeah, I know. But no other way. 
+		var _sw0_ = (p.length);        
 
         switch (_sw0_)
         {

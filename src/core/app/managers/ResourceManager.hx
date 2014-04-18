@@ -63,7 +63,7 @@ class ResourceManager extends EventDispatcher
 	
 	public function addResource(resource : IResource) : Void
 	{
-		resourceTable[resource.getID()] = resource;
+		resourceTable[Std.parseInt(resource.getID())] = resource;
 		if (Std.is(resource, IExternalResource)) {
 			cast((resource), IExternalResource).setFileSystemProvider(fileSystemProvider);
         }
@@ -72,13 +72,13 @@ class ResourceManager extends EventDispatcher
 			//factoryInstanceTable[IFactoryResource(resource).getInstance()] = resource;  
         }
 		allResources.push(resource);
-		var bindingsForThisResourceID : Array<ResourceBinding> = bindingsByResourceID[resource.getID()];
+		var bindingsForThisResourceID : Array<ResourceBinding> = bindingsByResourceID[Std.parseInt(resource.getID())];
 		if (bindingsForThisResourceID != null) {
 			for (binding in bindingsForThisResourceID) {
 				if (Std.is(resource, IExternalResource)) {
 					var externalResource : IExternalResource = cast((resource), IExternalResource);
 					if (externalResource.getIsLoaded()) {
-						binding.host[binding.property] = externalResource.getInstance();
+						binding.host[Std.parseInt(binding.property)] = externalResource.getInstance();
 						return;
                     }
 					if (externalResource.getIsLoading() == false) {
@@ -87,7 +87,7 @@ class ResourceManager extends EventDispatcher
                     }
                 }
                 else if (Std.is(resource, IFactoryResource)) {
-					binding.host[binding.property] = cast((resource), IFactoryResource).getInstance();
+					binding.host[Std.parseInt(binding.property)] = cast((resource), IFactoryResource).getInstance();
                 }
             }
         }
@@ -106,9 +106,9 @@ class ResourceManager extends EventDispatcher
 			//delete factoryInstanceTable[IFactoryResource(resource).getInstance()];
         }
 		
-		resourceTable[resource.getID()] = null;
+		resourceTable[Std.parseInt(resource.getID())] = null;
 		allResources.splice(index, 1);
-		var bindingsForThisResourceID : Array<ResourceBinding> = bindingsByResourceID[resource.getID()];
+		var bindingsForThisResourceID : Array<ResourceBinding> = bindingsByResourceID[Std.parseInt(resource.getID())];
 		var binding : ResourceBinding;
 		if (removeBindings) {
 			while (bindingsForThisResourceID.length > 0) {
@@ -118,7 +118,7 @@ class ResourceManager extends EventDispatcher
         else {  
 			// Simply null any properties bound to this resource. Binding remains.  
 			for (binding in bindingsForThisResourceID) {
-				binding.host[binding.property] = null;
+				binding.host[Std.parseInt(binding.property)] = null;
             }
         }
 		if (Std.is(resource, IExternalResource)) {
@@ -245,7 +245,7 @@ class ResourceManager extends EventDispatcher
         }
 		binding.bindingsForThisResourceID.splice(binding.bindingsForThisResourceID.indexOf(binding), 1);
 		if (binding.bindingsForThisResourceID.length == 0) {
-			bindingsByResourceID[binding.resourceID] = null;
+			bindingsByResourceID[Std.parseInt(binding.resourceID)] = null;
         }
 		Reflect.setField(host, property, null);
     }
@@ -274,9 +274,9 @@ class ResourceManager extends EventDispatcher
 	{
 		var externalResource : IExternalResource = cast((event.target), IExternalResource);
 		factoryInstanceTable[externalResource.getInstance()] = externalResource;
-		var resourceBindings : Array<ResourceBinding> = bindingsByResourceID[externalResource.getID()];
+		var resourceBindings : Array<ResourceBinding> = bindingsByResourceID[Std.parseInt(externalResource.getID())];
 		for (resourceBinding in resourceBindings) {
-			resourceBinding.host[resourceBinding.property] = externalResource.getInstance();
+			resourceBinding.host[Std.parseInt(resourceBinding.property)] = externalResource.getInstance();
         }
     }
 }

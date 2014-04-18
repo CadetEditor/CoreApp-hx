@@ -73,7 +73,7 @@ class DefaultExternalResourceParser implements IExternalResourceParser
 		//var resourceID:String = uri.path;  
 		var resourceID : String = uri.path;
 		if (resourceID.indexOf(assetsURI.path) != -1) {
-			resourceID = resourceID.replace(assetsURI.path, "");
+			resourceID = StringTools.replace(resourceID, assetsURI.path, "");
         }
 		
 		var resource : IExternalResource;

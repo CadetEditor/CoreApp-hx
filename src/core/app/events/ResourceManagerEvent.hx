@@ -27,7 +27,7 @@ class ResourceManagerEvent extends Event
 		return new ResourceManagerEvent(type, _resource);
     }
 	
-	private function get_Resource() : IResource {
+	private function get_resource() : IResource {
 		return _resource;
     }
 }
