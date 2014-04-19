@@ -2,7 +2,7 @@ package core.app.util;
 
 class IntrospectionUtil
 {
-	static private var descriptionCache : Dictionary = new Dictionary();
+	static private var descriptionCache : Map<Class<Dynamic>, Dynamic> = new Map<Class<Dynamic>, Dynamic>();
 		
 	/**
 	 * Returns the fully qualified class path for an object.
@@ -13,13 +13,14 @@ class IntrospectionUtil
 	 */		
 	static public function getClassPath(object : Dynamic): String
 	{
-		return flash.utils.getQualifiedClassName(object).replace("::",".");
+		//return flash.utils.getQualifiedClassName(object).replace("::",".");
+		return null;
 	}
 	
-	static public function isRelatedTo(objectA : Dynamic, objectB : Dynamic): Boolean
+	static public function isRelatedTo(objectA : Dynamic, objectB : Dynamic): Bool
 	{
-		var typeA : Class = getType(objectA);
-		var typeB : Class = getType(objectB);
+		var typeA : Class<Dynamic> = getType(objectA);
+		var typeB : Class<Dynamic> = getType(objectB);
 		
 		if (typeA == typeB) return true;
 		if (doesTypeExtend(typeA, typeB)) return true;
@@ -29,45 +30,47 @@ class IntrospectionUtil
 	
 	static public function getClassName(object : Dynamic ) : String
 	{
-		var classPath : String = flash.utils.getQualifiedClassName(object).replace("::",".");
+		//var classPath : String = flash.utils.getQualifiedClassName(object).replace("::",".");
+		var classPath : String = null;
 		if (classPath.indexOf(".") == -1) return classPath;
-		var split : Array = classPath.split( "." );
+		var split : Array<String> = classPath.split( "." );
 		return split[split.length-1];
 	}
 	
-	static public function getType(object : Dynamic): Class
+	static public function getType(object : Dynamic): Class<Dynamic>
 	{
 		var classPath : String = getClassPath(object);
 		
 		if (classPath == "null") return Xml;
 		
-		return Class(getDefinitionByName(classPath));
+		//return cast(getDefinitionByName(classPath), Class<Dynamic>);
+		return null;
 	}
 	
-	static public function doesTypeExtend(type : Class, superType : Class ): Bool
+	static public function doesTypeExtend(type : Class<Dynamic>, superType : Class<Dynamic> ): Bool
 	{
 		var description : Xml = getDescription(type);
 		var superDescription : Xml = getDescription(superType);
-		return description.factory.extendsClass.(@type == superDescription.@name).length() > 0;
+		return false;// description.factory.extendsClass.(@type == superDescription.@name).length() > 0;
 	}
 	
-	static public function doesTypeImplement(type : Class, interfaceType : Class ) : Bool
+	static public function doesTypeImplement(type : Class<Dynamic>, interfaceType : Class<Dynamic> ) : Bool
 	{
 		if (type == interfaceType) return true;
 		var description : Xml = getDescription(type);
 		var superDescription : Xml = getDescription(interfaceType);
-		return description.factory.implementsInterface.(@type == superDescription.@name).length() > 0;
+		return false;// description.factory.implementsInterface.(@type == superDescription.@name).length() > 0;
 	}
 	
-	static public function getSuperType(object : Dynamic) : Class
+	static public function getSuperType(object : Dynamic) : Class<Dynamic>
 	{
 		var description : Xml = getDescription(object);
-		return Class(getDefinitionByName(String(description.extendsClass[0].@type)));
+		return null;// Class(getDefinitionByName(String(description.extendsClass[0].@type)));
 	}
 	
-	static public function getDistanceToSuperType(object : Dynamic, superType : Class ) : Int
+	static public function getDistanceToSuperType(object : Dynamic, superType : Class<Dynamic> ) : Int
 	{
-		var superClassPath : String = getDescription(superType).@name;		
+/*		var superClassPath : String = null; getDescription(superType).@name;		
 		var description : Xml  = getDescription(object);
 		if (description.@name == superClassPath) return 0;
 		var i : Int
@@ -80,60 +83,69 @@ class IntrospectionUtil
 			if (description.extendsClass[i].@type == superClassPath){
 				return i+1;
 			}
-		}
+		}*/
 		return -1;
 	}
 	
-	public static function getPropertyMetadata(obj : Dynamic, propertyName : String ) : XMLList
+//	public static function getPropertyMetadata(obj : Dynamic, propertyName : String ) : XMLList
+	public static function getPropertyMetadata(obj : Dynamic, propertyName : String ) : Xml
 	{
 		var description : Xml = getPropertyDescription(obj, propertyName);
-		return description.metadata;
+		//return description.metadata;
+		return null;
 	}
 	
 	public static function getPropertyMetadataByName(obj : Dynamic, propertyName : String, name : String) : Xml
 	{
-		var metadata : XMLList = getPropertyMetadata(obj, propertyName);
-		if (!metadata) return null;
-		return metadata.(@name==name)[0];
+		//var metadata : XMLList = getPropertyMetadata(obj, propertyName);
+		//if (!metadata) return null;
+		//return metadata.(@name == name)[0];
+		return null;
 	}
 	
 	public static function getPropertyMetadataByNameAndKey(obj : Dynamic, propertyName : String, name : String, key : String ) : String
 	{
-		var metadataNode : Xml = getPropertyMetadataByName(obj, propertyName, name);
-		if (!metadataNode) return null;
-		return String(metadataNode.arg.(@key==key)[0].@value);
+		//var metadataNode : Xml = getPropertyMetadataByName(obj, propertyName, name);
+		//if (!metadataNode) return null;
+		//return String(metadataNode.arg.(@key == key)[0].@value);
+		return null;
 	}
 	
-	public static function getMetadata(obj : Dynamic) : XMLList
+//	public static function getMetadata(obj : Dynamic) : XMLList
+	public static function getMetadata(obj : Dynamic) : Xml
 	{
 		var description : Xml = getDescription(obj);
-		return description.factory[0].metadata;
+		//return description.factory[0].metadata;
+		return null;
 	}
 	
 	public static function getMetadataByName(obj : Dynamic, name : String ) : Xml
 	{
-		var metadata : XMLList = getMetadata(obj);
-		if (!metadata) return null;
-		return metadata.(@name==name)[0];
+		//var metadata : XMLList = getMetadata(obj);
+		//if (!metadata) return null;
+		//return metadata.(@name == name)[0];
+		return null;
 	}
 	
 	public static function getMetadataByNameAndKey(obj : Dynamic, name : String, key : String ) : String
 	{
-		var metadataNode : Xml = getMetadataByName(obj, name);
-		if (!metadataNode) return null;
-		return metadataNode.arg.(@key==key)[0].@value;
+		//var metadataNode : Xml = getMetadataByName(obj, name);
+		//if (!metadataNode) return null;
+		//return metadataNode.arg.(@key == key)[0].@value;
+		return null;
 	}
 	
 	public static function getPropertyDescription(obj : Dynamic, propertyName : String ) : Xml
 	{
-		var description : Xml = getDescription(obj);
-		var propertyNode : Xml = description.factory.accessor.(@name==propertyName)[0];
-		
-		if (!propertyNode){
-			propertyNode = description.factory.variable.(@name==propertyName)[0];
-		}
-		
-		return propertyNode;
+		//var description : Xml = getDescription(obj);
+		//var propertyNode : Xml = description.factory.accessor.(@name==propertyName)[0];
+		//
+		//if (!propertyNode){
+			//propertyNode = description.factory.variable.(@name==propertyName)[0];
+		//}
+		//
+		//return propertyNode;
+		return null;
 	}
 	
 	/**
@@ -146,26 +158,30 @@ class IntrospectionUtil
 	 */		
 	public static function getDescription(obj : Dynamic) : Xml
 	{
-		var type:Class;
-		if (obj is Class)
+		var type:Class<Dynamic>;
+		if (Std.is(obj, Class))
 		{
-			type = obj as Class
+			type = cast(obj, Class<Dynamic>);
 		}
 		else
 		{
-			var description : Xml = describeType(obj);
-			var classPath : String = String(description.@name).replace( "::", "." );
+			//var description : Xml = describeType(obj);
+			var description : Xml = null;
+			//var classPath : String = String(description.@name).replace( "::", "." );
+			var classPath : String = null;// cast(description.name, String).replace( "::", "." );
 			
 			//TODO: XML has a description.@name of "null"?
 			if (classPath == "null") {
 				type = Xml;
 			} else {
-				type = getDefinitionByName(classPath) as Class;
+				//type = cast(getDefinitionByName(classPath), Class<Dynamic>);
+				type = null;
 			}
 		}
 		
 		if (descriptionCache[type] == null){
-			descriptionCache[type] = describeType(type);
+			//descriptionCache[type] = describeType(type);
+			descriptionCache[type] = null;
 		}
 		return descriptionCache[type];
 	}
@@ -176,12 +192,13 @@ class IntrospectionUtil
 	 * the type specified for that property.
 	 * 
 	 */
-	static public function getPropertyType(host : Dynamic, propertyName : String ) : Class
+	static public function getPropertyType(host : Dynamic, propertyName : String ) : Class<Dynamic>
 	{
 		var propertyDescription : Xml = getPropertyDescription(host, propertyName);
-		var classPath : String = String(propertyDescription.@type);
-		classPath = classPath.replace("::", ".");
-		return Class(getDefinitionByName(classPath));
+		//var classPath : String = String(propertyDescription.@type);
+		//classPath = classPath.replace("::", ".");
+		//return Class(getDefinitionByName(classPath));
+		return null;
 	}
 	
 }
