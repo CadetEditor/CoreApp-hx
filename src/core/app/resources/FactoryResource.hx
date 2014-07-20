@@ -10,6 +10,7 @@
 package core.app.resources;
 
 import core.app.resources.IFactoryResource;
+import core.app.util.IntrospectionUtil;
 import flash.errors.Error;
 import core.app.resources.IFactoryResource;
 //import core.app.util.IntrospectionUtil;

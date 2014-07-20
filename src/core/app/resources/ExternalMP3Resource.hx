@@ -86,44 +86,62 @@ class ExternalMP3Resource extends AbstractExternalResource
 		dispatchEvent(new Event(Event.COMPLETE));
     }  
 	
+	//TODO: needs to be resolved
 	// https://gist.github.com/218226  
 	private function createSWFFromMP3(mp3 : ByteArray) : ByteArray{  
 		// Create an empty SWF    
 		// Defaults to v10, 550x400px, 50fps, one frame (works fine for us)  
-		var swf : SWF = new SWF();  
+		
+		//var swf : SWF = new SWF();  
+		
 		// Add FileAttributes tag    
 		// Defaults: as3 true, all other flags false (works fine for us)  
-		swf.tags.push(new TagFileAttributes());  
+		
+		//swf.tags.push(new TagFileAttributes());  
+		
 		// Add DefineSound tag    
 		// The ID is 1, all other parameters are automatically    
 		// determined from the mp3 itself.  
-		swf.tags.push(TagDefineSound.createWithMP3(1, mp3));  
+		
+		//swf.tags.push(TagDefineSound.createWithMP3(1, mp3));  
+		
 		// Create and add DoABC tag    
 		// Contains the AS3 byte code for the class definition for the embedded sound:    
 		// package tmp {    
 		//    public dynamic class SoundClass extends flash.media.Sound {    
 		//    }    
 		// }  
-		var abcBuilder : IAbcBuilder = new AbcBuilder();
-		var packageBuilder : IPackageBuilder = abcBuilder.definePackage(PACKAGENAME);
-		var classBuilder : IClassBuilder = packageBuilder.defineClass(CLASSNAME, "flash.media.Sound");
-		var abcFile : AbcFile = abcBuilder.build();
-		var abcSerializer : AbcSerializer = new AbcSerializer();
-		var abcBytes : ByteArray = abcSerializer.serializeAbcFile(abcFile);swf.tags.push(TagDoABC.create(abcBytes));  
+		
+		//var abcBuilder : IAbcBuilder = new AbcBuilder();
+		//var packageBuilder : IPackageBuilder = abcBuilder.definePackage(PACKAGENAME);
+		//var classBuilder : IClassBuilder = packageBuilder.defineClass(CLASSNAME, "flash.media.Sound");
+		//var abcFile : AbcFile = abcBuilder.build();
+		//var abcSerializer : AbcSerializer = new AbcSerializer();
+		//var abcBytes : ByteArray = abcSerializer.serializeAbcFile(abcFile);swf.tags.push(TagDoABC.create(abcBytes));  
+		
 		// Add SymbolClass tag    
 		// Binds the sound class definition to the embedded sound  
-		var symbolClass : TagSymbolClass = new TagSymbolClass();
-		symbolClass.symbols.push(SWFSymbol.create(1, QNAME));
-		swf.tags.push(symbolClass);  
-		// Add ShowFrame tag  
-		swf.tags.push(new TagShowFrame());  
-		// Add End tag  
-		swf.tags.push(new TagEnd());  
-		// Publish the SWF  
-		var swfData : SWFData = new SWFData();
-		swf.publish(swfData);
 		
-		return swfData;
+		//var symbolClass : TagSymbolClass = new TagSymbolClass();
+		//symbolClass.symbols.push(SWFSymbol.create(1, QNAME));
+		//swf.tags.push(symbolClass);  
+		
+		// Add ShowFrame tag  
+		
+		//swf.tags.push(new TagShowFrame());  
+		
+		// Add End tag  
+		
+		//swf.tags.push(new TagEnd());  
+		
+		// Publish the SWF  
+		
+		//var swfData : SWFData = new SWFData();
+		//swf.publish(swfData);
+		
+		//return swfData;
+		
+		return null;
     }
 	
 	override public function getInstance() : Dynamic

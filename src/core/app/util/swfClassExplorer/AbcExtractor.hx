@@ -24,16 +24,20 @@ THE SOFTWARE.
 
 package core.app.util.swfclassexplorer;
 
-import core.app.util.swfclassexplorer.RecordHeader;
-import nme.errors.Error;
+//TODO: needs to be resolved 
+//import core.app.util.swfclassexplorer.RecordHeader;
+//import nme.errors.Error;
 import core.app.util.swfclassexplorer.data.*;
-import nme.utils.ByteArray;
-import nme.utils.Endian;
+//import nme.utils.ByteArray;
+//import nme.utils.Endian;
 
 class AbcExtractor
 {
-	public static function getAbcTags(br : ByteArray) : Array<Dynamic>
+	//TODO: needs to be resolved
+	//public static function getAbcTags(br : ByteArray) : Array<Dynamic>
+	public static function getAbcTags(br : Dynamic) : Array<Dynamic>
 	{
+		/*
 		br.position = 0;  
 		// Decompress if neccesary  
 		if (br.readUnsignedByte() == 67) br = decompress(br);
@@ -56,10 +60,14 @@ class AbcExtractor
             }
         }
 		return taglist;
+		*/
+		return null;
     }
-	
-	private static function readRecordHeader(br : ByteArray) : RecordHeader
+	//TODO: needs to be resolved
+	//private static function readRecordHeader(br : ByteArray) : RecordHeader
+	private static function readRecordHeader(br : Dynamic) : RecordHeader
 	{
+		/*
 		if (br.position >= br.length - 2) return new RecordHeader(0, 2);
 		var tagCl : Int = br.readUnsignedShort();
 		var tagCode : Int = tagCl >> 6;
@@ -67,10 +75,15 @@ class AbcExtractor
 		if (tagLength == 0x3F) tagLength = br.readUnsignedInt();
 		if (tagLength > br.length) throw new Error("Record header length too big.");
 		return new RecordHeader(tagCode, tagLength);
+		*/
+		return null;
     }
 	
-	private static function decompress(br : ByteArray) : ByteArray
+	//TODO: needs to be resolved
+	//private static function decompress(br : ByteArray) : ByteArray
+	private static function decompress(br : Dynamic) : Dynamic
 	{
+		/*
 		br.position = 4;
 		var size : Int = br.readUnsignedInt();  
 		// Read the header  
@@ -85,6 +98,8 @@ class AbcExtractor
 		compressed.uncompress();
 		compressed.readBytes(uncompressed, 8, compressed.length);
 		return uncompressed;
+		*/
+		return null;
     }
 
     public function new()

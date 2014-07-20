@@ -2,7 +2,8 @@ package core.app.util;
 
 class IntrospectionUtil
 {
-	static private var descriptionCache : Map<Class<Dynamic>, Dynamic> = new Map<Class<Dynamic>, Dynamic>();
+	//TODO: needs to be resolved - should be ObjectMap to Dynamic
+	static private var descriptionCache : Map<String, Dynamic> = new Map<String, Dynamic>();
 		
 	/**
 	 * Returns the fully qualified class path for an object.
@@ -179,11 +180,13 @@ class IntrospectionUtil
 			}
 		}
 		
+		/*
 		if (descriptionCache[type] == null){
-			//descriptionCache[type] = describeType(type);
-			descriptionCache[type] = null;
+			descriptionCache[type] = describeType(type);
 		}
 		return descriptionCache[type];
+		*/
+		return null;
 	}
 	
 	/**

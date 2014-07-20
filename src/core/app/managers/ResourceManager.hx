@@ -20,6 +20,7 @@ import core.app.resources.IExternalResource;
 import core.app.resources.IFactoryResource;
 import core.app.resources.IResource;
 import core.app.util.IntrospectionUtil;
+import haxe.ds.ObjectMap;
 
 @:meta(Event(type="core.app.events.ResourceManagerEvent",name="resourceAdded"))
 class ResourceManager extends EventDispatcher
@@ -27,18 +28,22 @@ class ResourceManager extends EventDispatcher
 	private var fileSystemProvider : IFileSystemProvider;
 	private var resourceTable : Dynamic;
 	private var allResources : Array<IResource>;
-	private var factoryInstanceTable : Dictionary;
+	//TODO: needs to be resolved - should be ObjectMap to Dynamic
+	private var factoryInstanceTable : Map < String, Dynamic >;// = new Map < Class<Dynamic>, Dynamic > ();
 	private var bindingsByResourceID : Dynamic;
-	private var bindingsByHost : Dictionary;
+	//TODO: needs to be resolved - should be ObjectMap to Dynamic
+	private var bindingsByHost : Map < String, Dynamic >;// = new Map < Class<Dynamic>, Dynamic > ();
 	public function new(fileSystemProvider : IFileSystemProvider = null)
     {
         super();
 		this.fileSystemProvider = fileSystemProvider;
 		resourceTable = { };
 		allResources = new Array<IResource>();
-		factoryInstanceTable = new Dictionary(true);
+		//factoryInstanceTable = new Dictionary(true);
+		factoryInstanceTable = new Map < String, Class<Dynamic> > ();
 		bindingsByResourceID = { };
-		bindingsByHost = new Dictionary(true);
+		//bindingsByHost = new Dictionary(true);
+		bindingsByHost = new Map < String, Class<Dynamic> > ();
     }
 	
 	public function dispose() : Void
@@ -187,12 +192,14 @@ class ResourceManager extends EventDispatcher
 		var resourceBinding : ResourceBinding = new ResourceBinding(resourceID, host, property);
 		var bindingsForThisResourceID : Array<ResourceBinding> = Reflect.field(bindingsByResourceID, resourceID);
 		if (bindingsForThisResourceID == null) {
-			bindingsForThisResourceID = Reflect.setField(bindingsByResourceID, resourceID, new Array<ResourceBinding>());
+			//TODO: needs to be resolved
+			//bindingsForThisResourceID = Reflect.setField(bindingsByResourceID, resourceID, new Array<ResourceBinding>());
         }
 		bindingsForThisResourceID.push(resourceBinding);
 		var bindingsForThisHost : Array<ResourceBinding> = Reflect.field(bindingsByHost, Std.string(host));
 		if (bindingsForThisHost == null) {
-			bindingsForThisHost = Reflect.setField(bindingsByHost, Std.string(host), new Array<ResourceBinding>());
+			//TODO: needs to be resolved
+			//bindingsForThisHost = Reflect.setField(bindingsByHost, Std.string(host), new Array<ResourceBinding>());
         }		
 		bindingsForThisHost.push(resourceBinding);
 		resourceBinding.bindingsForThisHost = bindingsForThisHost; 
@@ -221,7 +228,7 @@ class ResourceManager extends EventDispatcher
 	{
 		var bindingsForThisHost : Array<ResourceBinding> = Reflect.field(bindingsByHost, Std.string(host));
 		if (bindingsForThisHost == null) return;
-		var binding : ResourceBinding;
+		var binding : ResourceBinding = null;
 		for (i in 0...bindingsForThisHost.length) {
 			var currentBinding : ResourceBinding = bindingsForThisHost[i];
 			if (currentBinding.property == property) {

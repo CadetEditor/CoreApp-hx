@@ -120,14 +120,16 @@ class DefaultExternalResourceParser implements IExternalResourceParser
 		bytes = readFileOperation.bytes;
 		var context : LoaderContext = new LoaderContext(false, ApplicationDomain.currentDomain);
 		
-		if (context.exists("allowCodeImport")) {
-			Reflect.setField(context, "allowCodeImport", true);
-        }
+		//TODO: needs to be resolved
+		//if (context.exists("allowCodeImport")) {
+			//Reflect.setField(context, "allowCodeImport", true);
+        //}
 		
 		loader.contentLoaderInfo.addEventListener(Event.COMPLETE, loadSWFCompleteHandler);
 		loader.loadBytes(readFileOperation.bytes, context);
     }
 	
+	//TODO: needs to be resolved
 	private function loadSWFCompleteHandler(event : Event) : Void
 	{
 		var loaderInfo : LoaderInfo = cast((event.target), LoaderInfo);
@@ -135,10 +137,11 @@ class DefaultExternalResourceParser implements IExternalResourceParser
 		bytes.position = 0;
 		var classPaths : Array<String> = SwfClassExplorer.getClassNames(bytes);
 		for (classPath in classPaths) {
-			var type : Class<Dynamic> = cast((loaderInfo.applicationDomain.getDefinition(classPath)), Class);
+			//TODO: needs to be resolved
+			var type : Class<Dynamic> = null;// cast((loaderInfo.applicationDomain.getDefinition(classPath)), Class);
 			var resourceID : String = resourceIDPrefix + classPath;
 			var resource : IResource;
-			
+		/*	
 			if (IntrospectionUtil.doesTypeExtend(type, DisplayObject)) {
 				resource = new FactoryResource(type, classPath);
             }
@@ -149,6 +152,7 @@ class DefaultExternalResourceParser implements IExternalResourceParser
 			if (resource != null) {
 				swfResources.push(resource);resourceManager.addResource(resource);
             }
+			*/
         }
     }
 }

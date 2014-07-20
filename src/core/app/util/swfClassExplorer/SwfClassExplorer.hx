@@ -40,13 +40,15 @@ class SwfClassExplorer
 */  
 	public static function getClassNames(swfBytes : ByteArray) : Array<String>
 	{
-		var ret : Array<String> = new Array<String>();
-		for (abcTag/* AS3HX WARNING could not determine type for var: abcTag exp: ECall(EField(EIdent(AbcExtractor),getAbcTags),[EIdent(swfBytes)]) type: null */ in AbcExtractor.getAbcTags(swfBytes)) {
-			for (trait/* AS3HX WARNING could not determine type for var: trait exp: EField(EIdent(abcTag),instances) type: null */ in abcTag.instances) {
-				ret.push(Std.string(trait).replace(":", "."));
-			}
-		}
-		return ret;
+		//var ret : Array<String> = new Array<String>();
+		//for (abcTag/* AS3HX WARNING could not determine type for var: abcTag exp: ECall(EField(EIdent(AbcExtractor),getAbcTags),[EIdent(swfBytes)]) type: null */ in AbcExtractor.getAbcTags(swfBytes)) {
+			//for (trait/* AS3HX WARNING could not determine type for var: trait exp: EField(EIdent(abcTag),instances) type: null */ in abcTag.instances) {
+				//ret.push(Std.string(trait).replace(":", "."));
+			//}
+		//}
+		//return ret;
+		
+		return null;
     } 
 	
 	/**
@@ -57,7 +59,8 @@ class SwfClassExplorer
 	
 	public static function getTraits(swfBytes : ByteArray) : Array<Dynamic>
 	{
-		return AbcExtractor.getAbcTags(swfBytes);
+		//return AbcExtractor.getAbcTags(swfBytes);
+		return null;
     }
 
     public function new()
